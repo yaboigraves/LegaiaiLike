@@ -1,0 +1,173 @@
+[gd_scene load_steps=14 format=3 uid="uid://dkaek8pvyl2xs"]
+
+[ext_resource type="Script" path="res://BattleManager.gd" id="1_1t254"]
+[ext_resource type="Script" path="res://Team.gd" id="1_60wg8"]
+[ext_resource type="Script" path="res://PlayerControlledEntity.gd" id="3_n6bvo"]
+[ext_resource type="Script" path="res://AIControlledEntity.gd" id="4_lkebv"]
+[ext_resource type="Script" path="res://BattleUIManager.gd" id="5_jmv5p"]
+[ext_resource type="Texture2D" uid="uid://cxct5vy3eikym" path="res://icon.svg" id="5_ydcxg"]
+[ext_resource type="Script" path="res://StateMachine.gd" id="6_87lep"]
+[ext_resource type="Script" path="res://PlayerTurnUIState.gd" id="7_b8t82"]
+[ext_resource type="Script" path="res://ProcessingPlayerTurnUIState.gd" id="8_tfvna"]
+[ext_resource type="Script" path="res://EnemyTurnUIState.gd" id="9_yn4p8"]
+[ext_resource type="Script" path="res://ActionRadial.gd" id="11_0g03e"]
+[ext_resource type="Script" path="res://EnemyActionDisplay.gd" id="12_cgrrv"]
+[ext_resource type="Script" path="res://ComboDisplay.gd" id="12_ejswd"]
+
+[node name="Main" type="Node"]
+metadata/_edit_vertical_guides_ = []
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("1_1t254")
+
+[node name="Team1" type="Node" parent="BattleManager"]
+script = ExtResource("1_60wg8")
+
+[node name="Player1Slot" type="Node" parent="BattleManager/Team1"]
+script = ExtResource("3_n6bvo")
+
+[node name="Player2Slot" type="Node" parent="BattleManager/Team1"]
+script = ExtResource("3_n6bvo")
+
+[node name="Player3Slot" type="Node" parent="BattleManager/Team1"]
+script = ExtResource("3_n6bvo")
+
+[node name="Team2" type="Node" parent="BattleManager"]
+script = ExtResource("1_60wg8")
+
+[node name="Enemy1Slot" type="Node" parent="BattleManager/Team2"]
+script = ExtResource("4_lkebv")
+
+[node name="Enemy2Slot" type="Node" parent="BattleManager/Team2"]
+script = ExtResource("4_lkebv")
+
+[node name="Enemy3Slot" type="Node" parent="BattleManager/Team2"]
+script = ExtResource("4_lkebv")
+
+[node name="UI" type="Control" parent="BattleManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_jmv5p")
+
+[node name="StateMachine" type="Node" parent="BattleManager/UI"]
+script = ExtResource("6_87lep")
+autostart = false
+
+[node name="PlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("actionRadial", "comboDisplay")]
+script = ExtResource("7_b8t82")
+actionRadial = NodePath("../../ActionRadial")
+comboDisplay = NodePath("../../ComboDisplay")
+
+[node name="ProcessingPlayerTurn" type="Node" parent="BattleManager/UI/StateMachine"]
+script = ExtResource("8_tfvna")
+
+[node name="EnemyTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("enemyActionDisplay")]
+script = ExtResource("9_yn4p8")
+enemyActionDisplay = NodePath("../../EnemyActionDisplay")
+
+[node name="Timer" type="Timer" parent="BattleManager/UI/StateMachine/EnemyTurn"]
+wait_time = 2.0
+one_shot = true
+
+[node name="PartyDisplay" type="Control" parent="BattleManager/UI"]
+layout_mode = 1
+anchor_left = 0.747
+anchor_top = 0.759
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.544067
+offset_top = 0.167969
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PartyDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ydcxg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/PartyDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionRadial" type="Control" parent="BattleManager/UI"]
+visible = false
+modulate = Color(0.396078, 0.803922, 0.945098, 1)
+layout_mode = 1
+anchor_left = 0.349
+anchor_top = 0.1
+anchor_right = 0.651
+anchor_bottom = 0.637
+offset_left = -0.0480042
+offset_top = 0.199997
+offset_right = 0.0479736
+offset_bottom = 0.223999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_0g03e")
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/ActionRadial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyActionDisplay" type="Control" parent="BattleManager/UI"]
+visible = false
+modulate = Color(0.862745, 0, 0, 1)
+layout_mode = 1
+anchor_left = 0.349
+anchor_top = 0.1
+anchor_right = 0.651
+anchor_bottom = 0.637
+offset_left = -0.0480042
+offset_top = 0.199997
+offset_right = 0.0479736
+offset_bottom = 0.223999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_cgrrv")
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/EnemyActionDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ComboDisplay" type="Control" parent="BattleManager/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -267.0
+offset_top = -91.0
+offset_right = 267.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("12_ejswd")
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/ComboDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
