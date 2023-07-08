@@ -6,3 +6,4 @@
 script = ExtResource("1_lcu65")
 actionName = "Rick"
 actionCost = 1
+direction = 3

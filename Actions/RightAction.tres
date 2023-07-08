@@ -6,3 +6,4 @@
 script = ExtResource("1_61eix")
 actionName = "Morty"
 actionCost = 1
+direction = 1

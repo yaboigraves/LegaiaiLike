@@ -6,3 +6,4 @@
 script = ExtResource("1_8f8ff")
 actionName = "Beeg Kick"
 actionCost = 3
+direction = 2
