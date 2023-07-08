@@ -20,6 +20,7 @@ func enter(_msg := {}) -> void:
 	
 	actionRadial.SetActions(player)
 
+	comboDisplay.ClearComboView()
 
 
 func HandleActionBufferUpdated(actionBuffer:ActionBuffer):
@@ -31,5 +32,9 @@ func HandleTurnReady():
 
 func exit():
 	super.exit()
+	
+	player.TurnReady.disconnect(HandleTurnReady)
+	player.ActionBufferUpdated.disconnect(HandleActionBufferUpdated)
+	
 	actionRadial.visible = false
 	comboDisplay.visible = false
