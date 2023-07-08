@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=20 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://BattleManager.gd" id="1_1t254"]
 [ext_resource type="Script" path="res://Team.gd" id="1_60wg8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://AIControlledEntity.gd" id="4_lkebv"]
 [ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="5_0fxqc"]
 [ext_resource type="Script" path="res://BattleUIManager.gd" id="5_jmv5p"]
-[ext_resource type="Texture2D" uid="uid://cxct5vy3eikym" path="res://icon.svg" id="5_ydcxg"]
 [ext_resource type="Script" path="res://StateMachine.gd" id="6_87lep"]
 [ext_resource type="Resource" uid="uid://dmnlucxnrfh2f" path="res://Actions/LeftAction.tres" id="6_ljfqr"]
 [ext_resource type="Script" path="res://PlayerTurnUIState.gd" id="7_b8t82"]
@@ -17,6 +16,8 @@
 [ext_resource type="Script" path="res://ActionRadial.gd" id="11_0g03e"]
 [ext_resource type="Script" path="res://EnemyActionDisplay.gd" id="12_cgrrv"]
 [ext_resource type="Script" path="res://ComboDisplay.gd" id="12_ejswd"]
+[ext_resource type="Script" path="res://Actions/PartyDisplay.gd" id="14_6plnp"]
+[ext_resource type="PackedScene" uid="uid://celmkcso8kpdd" path="res://entity_display.tscn" id="15_r76id"]
 [ext_resource type="PackedScene" uid="uid://cqsymm8sn1ubb" path="res://Actions/action_view.tscn" id="16_yq0pa"]
 
 [node name="Main" type="Node"]
@@ -25,8 +26,9 @@ metadata/_edit_vertical_guides_ = []
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_1t254")
 
-[node name="Team1" type="Node" parent="BattleManager"]
+[node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("1_60wg8")
+enemyTeam = NodePath("../Team2")
 
 [node name="Player1Slot" type="Node" parent="BattleManager/Team1"]
 script = ExtResource("3_n6bvo")
@@ -49,8 +51,9 @@ downAction = ExtResource("5_0fxqc")
 leftAction = ExtResource("6_ljfqr")
 rightAction = ExtResource("7_l1ucp")
 
-[node name="Team2" type="Node" parent="BattleManager"]
+[node name="Team2" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("1_60wg8")
+enemyTeam = NodePath("../Team1")
 
 [node name="Enemy1Slot" type="Node" parent="BattleManager/Team2"]
 script = ExtResource("4_lkebv")
@@ -94,27 +97,86 @@ enemyActionDisplay = NodePath("../../EnemyActionDisplay")
 wait_time = 2.0
 one_shot = true
 
-[node name="PartyDisplay" type="Control" parent="BattleManager/UI"]
+[node name="PartyDisplay" type="Control" parent="BattleManager/UI" node_paths=PackedStringArray("team")]
 layout_mode = 1
-anchor_left = 0.747
-anchor_top = 0.759
-anchor_right = 1.0
+anchor_top = 0.75
+anchor_right = 0.25
 anchor_bottom = 1.0
-offset_left = -0.544067
-offset_top = 0.167969
-grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("14_6plnp")
+team = NodePath("../../Team1")
+entityDisplayPackedScene = ExtResource("15_r76id")
 
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PartyDisplay"]
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/PartyDisplay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ydcxg")
+color = Color(0.470588, 0.701961, 0.619608, 0.733333)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/PartyDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ComboDisplay" type="Control" parent="BattleManager/UI"]
+layout_mode = 1
+anchor_left = 0.25
+anchor_top = 0.85
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_left = 0.544
+offset_top = -0.280029
+offset_right = -0.264038
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_ejswd")
+actionViewScene = ExtResource("16_yq0pa")
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/ComboDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.195
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.447059, 0.447059, 0.447059, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/UI/ComboDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyDisplay" type="Control" parent="BattleManager/UI" node_paths=PackedStringArray("team")]
+layout_mode = 1
+anchor_left = 0.75
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("14_6plnp")
+team = NodePath("../../Team2")
+entityDisplayPackedScene = ExtResource("15_r76id")
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/EnemyDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.478431, 0.529412, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/EnemyDisplay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,39 +245,6 @@ grow_vertical = 2
 script = ExtResource("12_cgrrv")
 
 [node name="ColorRect" type="ColorRect" parent="BattleManager/UI/EnemyActionDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ComboDisplay" type="Control" parent="BattleManager/UI"]
-layout_mode = 1
-anchor_left = 0.003
-anchor_top = 0.86
-anchor_right = 0.732
-anchor_bottom = 1.0
-offset_left = 0.544
-offset_top = -0.280029
-offset_right = -0.264038
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("12_ejswd")
-actionViewScene = ExtResource("16_yq0pa")
-
-[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/ComboDisplay"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.005
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 0.195
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.447059, 0.447059, 0.447059, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/UI/ComboDisplay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -22,5 +22,3 @@ func BindEntityToUI(entity: Entity):
 
 
 
-
-

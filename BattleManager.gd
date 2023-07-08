@@ -34,6 +34,7 @@ func ConstructTurnOrder():
 			turnOrder.append(team2Entities[i])
 	print(turnOrder)
 
+
 func ProgressTurn():
 	if(turnIndex >= turnOrder.size()):
 		turnIndex = 0

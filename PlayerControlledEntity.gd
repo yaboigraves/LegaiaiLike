@@ -21,7 +21,7 @@ func DoTurn():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("confirm") and actionBuffer.IsValidCombo():
-		TurnReady.emit()
+		TurnReady.emit(self)
 		set_process(false)
 	
 	elif Input.is_action_just_pressed("cancel"):

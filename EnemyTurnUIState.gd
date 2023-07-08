@@ -14,7 +14,7 @@ func enter(_msg := {}) -> void:
 	
 	enemyActionDisplay.visible = true
 
-func HandleEnemyTurnReady():
+func HandleEnemyTurnReady(entity):
 	print("dingle bingle")
 	$Timer.start()
 	

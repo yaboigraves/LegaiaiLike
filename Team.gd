@@ -1,10 +1,23 @@
 class_name Team
 extends Node
 
+@export var enemyTeam: Team
+
+func _ready() -> void:
+	for entity in GetEntities():
+		entity.TurnReady.connect(HandleEntityTurnReady)
 
 
-
-
+func HandleEntityTurnReady(entity:Entity):
+	var testTarget = enemyTeam.GetEntities()[0]
+	
+	if entity is AIControlledEntity:
+		pass
+	
+	if entity is PlayerControlledEntity:
+		for action in entity.actionBuffer.actions:
+			testTarget.ApplyActionToSelf(action)
+	
 
 
 func IsLoseConditonMet() -> bool:

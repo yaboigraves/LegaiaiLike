@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://celmkcso8kpdd"]
+
+[ext_resource type="Script" path="res://EntityDisplay.gd" id="1_s0is3"]
+[ext_resource type="Texture2D" uid="uid://cxct5vy3eikym" path="res://icon.svg" id="1_xsdvq"]
+
+[node name="EntityDisplay" type="Control"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 4
+script = ExtResource("1_s0is3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_xsdvq")
+expand_mode = 1
+
+[node name="Type" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_xsdvq")
+expand_mode = 1
+
+[node name="Health" type="ProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

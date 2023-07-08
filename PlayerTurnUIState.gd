@@ -26,7 +26,7 @@ func enter(_msg := {}) -> void:
 func HandleActionBufferUpdated(actionBuffer:ActionBuffer):
 	comboDisplay.RefreshComboView(actionBuffer)
 
-func HandleTurnReady():
+func HandleTurnReady(entity):
 	#so here we would move to the processing state
 	state_machine.transition_to("ProcessingPlayerTurn", {"player": player})
 

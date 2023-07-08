@@ -12,5 +12,5 @@ func DoTurn():
 	super.DoTurn()
 
 	print("")
-	TurnReady.emit()
+	TurnReady.emit(self)
 	#TurnDone.emit(self)
