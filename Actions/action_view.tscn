@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqsymm8sn1ubb"]
+
+[ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://arrowDown.png" id="1_4x6s8"]
+[ext_resource type="Script" path="res://Actions/ActionView.gd" id="1_8y237"]
+[ext_resource type="Texture2D" uid="uid://ckhopy6w546ke" path="res://arrowUp.png" id="2_7kpuj"]
+[ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://arrowLeft.png" id="4_rk38q"]
+[ext_resource type="Texture2D" uid="uid://dg3bpgaac2yrw" path="res://arrowRight.png" id="5_rspl3"]
+
+[node name="ActionView" type="Control"]
+layout_mode = 3
+anchor_right = 0.234
+anchor_bottom = 0.11
+offset_right = 0.431976
+offset_bottom = -0.280006
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8y237")
+upArrow = ExtResource("2_7kpuj")
+downArrow = ExtResource("1_4x6s8")
+leftArrow = ExtResource("4_rk38q")
+rightArrow = ExtResource("5_rspl3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ArrowTexture" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_4x6s8")
+expand_mode = 3
+
+[node name="ActionName" type="RichTextLabel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]Action Name"
+fit_content = true
+
+[node name="Cost" type="RichTextLabel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]4"
+fit_content = true

@@ -3,10 +3,12 @@ extends Entity
 
 var actionBuffer : ActionBuffer
 
-@export var upAction: Resource
-@export var downAction : Resource
-@export var leftAction: Resource
-@export var rightAction : Resource
+@export var upAction: Action
+@export var downAction : Action
+@export var leftAction: Action
+@export var rightAction : Action
+
+signal ActionBufferUpdated
 
 func _ready() -> void:
 	set_process(false)
@@ -16,21 +18,28 @@ func DoTurn():
 	set_process(true)
 	actionBuffer = ActionBuffer.new()
 	
-	
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("confirm"):
-		TurnDone.emit(self)
+	if Input.is_action_just_pressed("confirm") and actionBuffer.IsValidCombo():
+		TurnReady.emit()
 		set_process(false)
 	
-	elif Input.is_action_just_pressed("up"):
-		pass
+	elif Input.is_action_just_pressed("cancel"):
+		actionBuffer.RemoveLastAction()
+		ActionBufferUpdated.emit(actionBuffer)
 	
+	elif Input.is_action_just_pressed("up"):
+		if actionBuffer.TryAddAction(upAction):
+			ActionBufferUpdated.emit(actionBuffer)
+		
 	elif Input.is_action_just_pressed("down"):
-		pass
+		if actionBuffer.TryAddAction(downAction):
+			ActionBufferUpdated.emit(actionBuffer)
 		
 	elif Input.is_action_just_pressed("left"):
-		pass
+		if actionBuffer.TryAddAction(leftAction):
+			ActionBufferUpdated.emit(actionBuffer)
 	
 	elif Input.is_action_just_pressed("right"):
-		pass
+		if actionBuffer.TryAddAction(rightAction):
+			ActionBufferUpdated.emit(actionBuffer)

@@ -1,2 +1,6 @@
 class_name Action
-extends RefCounted
+extends Resource
+
+@export var actionName : String = "Slapper"
+@export var actionCost : int
+

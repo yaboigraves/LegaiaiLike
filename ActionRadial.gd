@@ -1,12 +1,22 @@
 class_name ActionRadial
 extends Control
 
+var upActionView : ActionView
+var leftActionView : ActionView
+var downActionView : ActionView
+var rightActionView : ActionView
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	CacheActionViews()
+	
+func CacheActionViews():
+	upActionView = $VBoxContainer/UpAction as ActionView
+	leftActionView = $VBoxContainer/LeftAction as ActionView
+	downActionView = $VBoxContainer/DownAction as ActionView
+	rightActionView = $VBoxContainer/RightAction as ActionView
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func SetActions(entity : PlayerControlledEntity):
+	upActionView.LoadAction(entity.upAction)
+	leftActionView.LoadAction(entity.leftAction)
+	downActionView.LoadAction(entity.downAction)
+	rightActionView.LoadAction(entity.rightAction)

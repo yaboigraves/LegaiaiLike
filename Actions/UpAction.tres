@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://bj4v5hf4g7vna"]
+
+[ext_resource type="Script" path="res://Action.gd" id="1_45kov"]
+
+[resource]
+script = ExtResource("1_45kov")
+actionName = "Headbutt"
+actionCost = 2
