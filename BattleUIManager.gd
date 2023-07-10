@@ -21,4 +21,5 @@ func BindEntityToUI(entity: Entity):
 
 
 
-
+func DrawTurnOrder(turnOrder, index):
+	$TurnOrderDisplay.RefreshTurnOrder(turnOrder,index)

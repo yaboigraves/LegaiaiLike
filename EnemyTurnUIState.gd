@@ -1,6 +1,6 @@
 extends State
 
-@export var enemyActionDisplay : Control
+@export var enemyActionDisplay : EnemyActionDisplay
 
 var enemy : AIControlledEntity
 
@@ -12,6 +12,7 @@ func enter(_msg := {}) -> void:
 	enemy = _msg.enemy;
 	enemy.TurnReady.connect(HandleEnemyTurnReady)
 	
+	enemyActionDisplay.ShowAction(enemy.selectedAction)
 	enemyActionDisplay.visible = true
 
 func HandleEnemyTurnReady(entity):

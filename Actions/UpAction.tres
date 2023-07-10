@@ -7,3 +7,5 @@ script = ExtResource("1_45kov")
 actionName = "Headbutt"
 actionCost = 2
 direction = 0
+damage = 5
+damageType = 0

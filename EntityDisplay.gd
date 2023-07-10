@@ -5,6 +5,7 @@ var entity: Entity
 
 
 func LoadEntity(entity: Entity):
+	$HBoxContainer/Icon.texture = entity.entityData.icon
 	$HBoxContainer/Health.max_value = entity.health
 	$HBoxContainer/Health.value = entity.health
 	entity.HealthChanged.connect(HandleHealthChanged)
