@@ -9,11 +9,15 @@ var turnOrder : Array[Entity]
 
 var team1: Team
 var team2: Team
+var playerInputHandler : PlayerInputHandler
 
 var turnIndex = 0 
 
 func _ready() -> void:
 	CacheTeamRefs()
+	
+	playerInputHandler = $PlayerInputHandler as PlayerInputHandler
+	
 	ConstructTurnOrder()
 	ProgressTurn()
 	

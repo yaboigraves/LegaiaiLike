@@ -1,11 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=31 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://BattleManager.gd" id="1_1t254"]
 [ext_resource type="Script" path="res://Team.gd" id="1_60wg8"]
+[ext_resource type="Script" path="res://PlayerInputHandler.gd" id="2_c64ty"]
 [ext_resource type="Script" path="res://PlayerControlledEntity.gd" id="3_n6bvo"]
 [ext_resource type="Resource" uid="uid://bj4v5hf4g7vna" path="res://Actions/UpAction.tres" id="4_83udu"]
 [ext_resource type="Script" path="res://AIControlledEntity.gd" id="4_lkebv"]
+[ext_resource type="Script" path="res://ComboPlayerInputState.gd" id="4_t7sth"]
 [ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="5_0fxqc"]
+[ext_resource type="Script" path="res://TargettingPlayerInputState.gd" id="5_d6kq4"]
 [ext_resource type="Script" path="res://BattleUIManager.gd" id="5_jmv5p"]
 [ext_resource type="Script" path="res://StateMachine.gd" id="6_87lep"]
 [ext_resource type="Resource" uid="uid://dmnlucxnrfh2f" path="res://Actions/LeftAction.tres" id="6_ljfqr"]
@@ -33,6 +36,19 @@ metadata/_edit_vertical_guides_ = []
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_1t254")
+
+[node name="PlayerInputHandler" type="Node" parent="BattleManager"]
+script = ExtResource("2_c64ty")
+
+[node name="StateMachine" type="Node" parent="BattleManager/PlayerInputHandler"]
+script = ExtResource("6_87lep")
+autostart = false
+
+[node name="ComboPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
+script = ExtResource("4_t7sth")
+
+[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
+script = ExtResource("5_d6kq4")
 
 [node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("1_60wg8")

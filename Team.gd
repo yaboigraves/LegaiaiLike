@@ -15,8 +15,6 @@ func _ready() -> void:
 
 
 func HandleEntityTurnReady(entity:Entity):
-
-	
 	if entity is AIControlledEntity:
 		var randomTarget = enemyTeam.GetAliveEntities().pick_random()
 		randomTarget.ApplyActionToSelf(entity.selectedAction)
