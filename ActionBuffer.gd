@@ -4,6 +4,7 @@ extends RefCounted
 var maxActionSize : int = 4
 var actionSize : int = 0
 var actions : Array[Action]
+var target : Entity
 
 func IsValidCombo():
 	if actionSize > 0:

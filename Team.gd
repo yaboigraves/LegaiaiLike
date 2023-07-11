@@ -20,7 +20,7 @@ func HandleEntityTurnReady(entity:Entity):
 		randomTarget.ApplyActionToSelf(entity.selectedAction)
 	
 	if entity is PlayerControlledEntity:
-		var testTarget = enemyTeam.GetEntities()[0]
+		var testTarget = entity.actionBuffer.target
 		for action in entity.actionBuffer.actions:
 			testTarget.ApplyActionToSelf(action)
 	
@@ -33,6 +33,11 @@ func IsLoseConditonMet() -> bool:
 			return false
 	return true
 	
+func IsEntityAtIndexAlive(index):
+	return (get_child(index) as Entity).isAlive
+	
+func GetEntityAtIndex(index) -> Entity:
+	return get_child(index) as Entity
 	
 func GetEntities() -> Array[Entity]:
 	var entities : Array[Entity]

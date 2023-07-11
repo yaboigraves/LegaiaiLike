@@ -55,8 +55,9 @@ script = ExtResource("4_jdolt")
 [node name="ComboPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
 script = ExtResource("4_t7sth")
 
-[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
+[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine" node_paths=PackedStringArray("targetTeam")]
 script = ExtResource("5_d6kq4")
+targetTeam = NodePath("../../../Team2")
 
 [node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("1_60wg8")

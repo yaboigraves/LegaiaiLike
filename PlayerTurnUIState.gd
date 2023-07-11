@@ -23,6 +23,7 @@ func enter(_msg := {}) -> void:
 	#waiting for the player to mark their actions done or the queue to get updated
 	player.TurnReady.connect(HandleTurnReady)
 	player.ActionBufferUpdated.connect(HandleActionBufferUpdated)
+	player.TargetChanged.connect(HandleTargetChanged)
 	
 	actionRadial.SetActions(player)
 
@@ -69,11 +70,15 @@ func HandleTurnReady(entity):
 	#so here we would move to the processing state
 	state_machine.transition_to("ProcessingPlayerTurn", {"player": player})
 
+func HandleTargetChanged(target: Entity):
+	print("target is ", target)
+
 func exit():
 	super.exit()
 	
 	player.TurnReady.disconnect(HandleTurnReady)
 	player.ActionBufferUpdated.disconnect(HandleActionBufferUpdated)
-	
+	player.TargetChanged.disconnect(HandleTargetChanged)
+
 	actionRadial.visible = false
 	comboDisplay.visible = false
