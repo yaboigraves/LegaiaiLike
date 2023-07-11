@@ -15,11 +15,7 @@ func enter(_msg := {}) -> void:
 	
 	#load the actual player that we're reading from
 	player = _msg.player as PlayerControlledEntity;
-	
 
-
-
-	
 	#waiting for the player to mark their actions done or the queue to get updated
 	player.TurnReady.connect(HandleTurnReady)
 	player.ActionBufferUpdated.connect(HandleActionBufferUpdated)
@@ -29,13 +25,8 @@ func enter(_msg := {}) -> void:
 
 	comboDisplay.ClearComboView()
 
-#	actionRadial.visible = true
-#	comboDisplay.visible = true
 
-#holy shit im a genius
-#we can totally do this this way wowww
-#a state in a state machine, listening to state transitions to handle state
-#is this bad??? or genius I cant tell
+
 
 func HandlePlayerStateChanged(state:State):
 

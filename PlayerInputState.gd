@@ -5,3 +5,4 @@ var currentEntity: PlayerControlledEntity
 
 func enter(args = {}):
 	currentEntity = args.entity
+	currentEntity.TurnStarted.emit()

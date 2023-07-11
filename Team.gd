@@ -6,13 +6,16 @@ signal TeamMemberDied(team:Team, entity:Entity)
 signal TurnDone(team:Team, entity:Entity)
 
 @export var enemyTeam: Team
+@export var entitysDisplay: EntitysDisplay
 
 func _ready() -> void:
+	
 	for entity in GetEntities():
 		entity.TurnReady.connect(HandleEntityTurnReady)
 		entity.TurnDone.connect(HandleEntityTurnDone)
 		entity.Died.connect(HandleEntityDied)
-
+	
+	entitysDisplay.LoadTeam(self)
 
 func HandleEntityTurnReady(entity:Entity):
 	if entity is AIControlledEntity:

@@ -2,9 +2,12 @@ class_name Entity
 extends Node
 
 signal HealthChanged
+signal TurnStarted
 signal TurnReady(entity:Entity)
 signal TurnDone
 signal Died(entity:Entity)
+signal Targeted
+
 
 #these are the current values
 @export var entityData : EntityData
