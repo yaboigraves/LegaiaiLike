@@ -20,9 +20,7 @@ func _ready() -> void:
 		
 		child.state_machine = self
 	
-	set_process(false)
-	set_physics_process(false)
-	set_process_unhandled_input(false)
+
 	
 	if autostart:
 		state.enter()
@@ -54,7 +52,7 @@ func _physics_process(delta: float) -> void:
 # This function calls the current state's exit() function, then changes the active state,
 # and calls its enter function.
 # It optionally takes a `msg` dictionary to pass to the next state's enter() function.
-func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
+func transition_to(target_state_name: String, msg: Dictionary = {}, startProcessing = false) -> void:
 	# Safety check, you could use an assert() here to report an error if the state name is incorrect.
 	# We don't use an assert here to help with code reuse. If you reuse a state in different state machines
 	# but you don't want them all, they won't be able to transition to states that aren't in the scene tree.
@@ -64,6 +62,11 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	if state:
 		state.exit()
 		
+	if startProcessing:
+		set_process(true)
+		set_physics_process(true)
+		set_process_unhandled_input(true)
+
 	state = get_node(target_state_name)
 	state.enter(msg)
 	emit_signal("transitioned", state)

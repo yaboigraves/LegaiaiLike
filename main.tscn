@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=36 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://BattleManager.gd" id="1_1t254"]
 [ext_resource type="Script" path="res://Team.gd" id="1_60wg8"]
 [ext_resource type="Script" path="res://PlayerInputHandler.gd" id="2_c64ty"]
 [ext_resource type="Script" path="res://PlayerControlledEntity.gd" id="3_n6bvo"]
 [ext_resource type="Resource" uid="uid://bj4v5hf4g7vna" path="res://Actions/UpAction.tres" id="4_83udu"]
+[ext_resource type="Script" path="res://RootPlayerInputState.gd" id="4_jdolt"]
 [ext_resource type="Script" path="res://AIControlledEntity.gd" id="4_lkebv"]
 [ext_resource type="Script" path="res://ComboPlayerInputState.gd" id="4_t7sth"]
 [ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="5_0fxqc"]
@@ -30,6 +31,10 @@
 [ext_resource type="PackedScene" uid="uid://cqsymm8sn1ubb" path="res://Actions/action_view.tscn" id="16_yq0pa"]
 [ext_resource type="Script" path="res://TurnOrderDisplay.gd" id="26_enp32"]
 [ext_resource type="PackedScene" uid="uid://b4ws34qh8i5oo" path="res://entity_icon.tscn" id="27_rpp4b"]
+[ext_resource type="Texture2D" uid="uid://ckhopy6w546ke" path="res://arrowUp.png" id="32_fpt2a"]
+[ext_resource type="Texture2D" uid="uid://dg3bpgaac2yrw" path="res://arrowRight.png" id="33_b8tdo"]
+[ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://arrowDown.png" id="34_41fwc"]
+[ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://arrowLeft.png" id="35_r6gtd"]
 
 [node name="Main" type="Node"]
 metadata/_edit_vertical_guides_ = []
@@ -43,6 +48,9 @@ script = ExtResource("2_c64ty")
 [node name="StateMachine" type="Node" parent="BattleManager/PlayerInputHandler"]
 script = ExtResource("6_87lep")
 autostart = false
+
+[node name="RootPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
+script = ExtResource("4_jdolt")
 
 [node name="ComboPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
 script = ExtResource("4_t7sth")
@@ -110,8 +118,9 @@ script = ExtResource("5_jmv5p")
 script = ExtResource("6_87lep")
 autostart = false
 
-[node name="PlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("actionRadial", "comboDisplay")]
+[node name="PlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("playerTurnRootDisplay", "actionRadial", "comboDisplay")]
 script = ExtResource("7_b8t82")
+playerTurnRootDisplay = NodePath("../../PlayerTurnRootDisplay")
 actionRadial = NodePath("../../ActionRadial")
 comboDisplay = NodePath("../../ComboDisplay")
 
@@ -158,6 +167,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ComboDisplay" type="Control" parent="BattleManager/UI"]
+visible = false
 layout_mode = 1
 anchor_left = 0.25
 anchor_top = 0.85
@@ -218,6 +228,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ActionRadial" type="Control" parent="BattleManager/UI"]
+visible = false
 layout_mode = 1
 anchor_left = 0.349
 anchor_top = 0.1
@@ -318,3 +329,94 @@ anchor_bottom = 0.471
 offset_bottom = -0.0349998
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PlayerTurnRootDisplay" type="Control" parent="BattleManager/UI"]
+visible = false
+layout_mode = 1
+anchor_left = 0.357
+anchor_top = 0.225
+anchor_right = 0.643
+anchor_bottom = 0.775
+offset_left = -0.264027
+offset_top = -0.300006
+offset_right = 0.263992
+offset_bottom = 0.299977
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/PlayerTurnRootDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.415686, 0.607843, 0.564706)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_fpt2a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Attack"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("33_b8tdo")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Item"
+fit_content = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("34_41fwc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Spell"
+fit_content = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("35_r6gtd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Swap Party"
+fit_content = true

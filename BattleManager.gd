@@ -59,7 +59,6 @@ func ProgressTurn():
 	
 	print("starting ", turnOrder[turnIndex], " turn")
 	turnOrder[turnIndex].DoTurn()
-	
 	BattleUIManager.instance.DrawTurnOrder(turnOrder,turnIndex)
 	
 	
