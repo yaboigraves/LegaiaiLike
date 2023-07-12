@@ -1,6 +1,8 @@
 class_name BattleUIManager
 extends Node
 
+#note MAKE SURE THIS IS HIGH IN THE INIT ORDER SO TEAMS AND STUFF DONT GET BUILT OUT
+
 static var instance : BattleUIManager
 
 var stateMachine : StateMachine

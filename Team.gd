@@ -4,9 +4,10 @@ extends Node
 signal Lost(team:Team)
 signal TeamMemberDied(team:Team, entity:Entity)
 signal TurnDone(team:Team, entity:Entity)
+signal EntitiesUpdated
 
 @export var enemyTeam: Team
-@export var entitysDisplay: EntitysDisplay
+
 
 func _ready() -> void:
 	
@@ -15,7 +16,7 @@ func _ready() -> void:
 		entity.TurnDone.connect(HandleEntityTurnDone)
 		entity.Died.connect(HandleEntityDied)
 	
-	entitysDisplay.LoadTeam(self)
+	EntitiesUpdated.emit()
 
 func HandleEntityTurnReady(entity:Entity):
 	if entity is AIControlledEntity:

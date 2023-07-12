@@ -4,9 +4,11 @@ extends Node
 signal HealthChanged
 signal TurnStarted
 signal TurnReady(entity:Entity)
-signal TurnDone
+signal TurnDone(entity:Entity)
 signal Died(entity:Entity)
 signal Targeted
+signal Untargeted
+
 
 
 #these are the current values
@@ -25,6 +27,7 @@ func ApplyActionToSelf(action:Action):
 	if health <= 0:
 		isAlive = false
 		Died.emit(self)
+		print(self, " died!")
 
 func DoTurn():
 	BattleUIManager.instance.BindEntityToUI(self)

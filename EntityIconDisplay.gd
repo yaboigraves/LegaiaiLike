@@ -9,6 +9,12 @@ func LoadEntity(entity:Entity):
 	texture = entity.entityData.icon
 	entity.Targeted.connect(HandleTargetted)
 	entity.TurnStarted.connect(HandleTargetted)
+	entity.TurnDone.connect(HandleUntargetted)
+	entity.Untargeted.connect(HandleUntargetted)
 	
 func HandleTargetted():
 	$SelectionArrow.visible = true
+
+func HandleUntargetted(entity:Entity = null):
+	$SelectionArrow.visible = false
+

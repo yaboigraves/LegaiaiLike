@@ -11,16 +11,17 @@ func enter(_msg := {}) -> void:
 	#load the actual player that we're reading from
 	enemy = _msg.enemy;
 	enemy.TurnReady.connect(HandleEnemyTurnReady)
-	
+	enemy.Targeted.emit()
 	enemyActionDisplay.ShowAction(enemy.selectedAction)
 	enemyActionDisplay.visible = true
 
 func HandleEnemyTurnReady(entity):
-	print("dingle bingle")
+
 	$Timer.start()
 	
 	await $Timer.timeout
-
+	
+	
 	enemy.TurnDone.emit(enemy)
 
 
@@ -30,3 +31,4 @@ func exit():
 	
 	enemyActionDisplay.visible = false
 	enemy.TurnReady.disconnect(HandleEnemyTurnReady)
+	

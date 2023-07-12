@@ -97,7 +97,7 @@ func ProgressTurn():
 	if(turnIndex >= turnOrder.size()):
 		turnIndex = 0
 	
-	print("starting ", turnOrder[turnIndex], " turn")
+	
 	turnOrder[turnIndex].DoTurn()
 	BattleUIManager.instance.DrawTurnOrder(turnOrder,turnIndex)
 	
