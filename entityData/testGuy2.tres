@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EntityData" load_steps=3 format=3 uid="uid://ckdkaq0l06csq"]
 
-[ext_resource type="Script" path="res://EntityData.gd" id="1_4p30v"]
-[ext_resource type="Texture2D" uid="uid://ck5s6uwfi0ouk" path="res://testIcon2.png" id="1_pjj45"]
+[ext_resource type="Script" path="res://scripts/EntityData.gd" id="1_4p30v"]
+[ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://textures/testIcon1.png" id="1_015f4"]
 
 [resource]
 script = ExtResource("1_4p30v")
-icon = ExtResource("1_pjj45")
+icon = ExtResource("1_015f4")

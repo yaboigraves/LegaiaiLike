@@ -1,70 +1,70 @@
 [gd_scene load_steps=40 format=3 uid="uid://dkaek8pvyl2xs"]
 
-[ext_resource type="Script" path="res://BattleManager.gd" id="1_1t254"]
-[ext_resource type="Script" path="res://Team.gd" id="1_60wg8"]
-[ext_resource type="Script" path="res://PlayerInputHandler.gd" id="2_c64ty"]
-[ext_resource type="Script" path="res://PlayerControlledEntity.gd" id="3_n6bvo"]
+[ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
+[ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
+[ext_resource type="Script" path="res://scripts/StateMachine.gd" id="3_fnwla"]
 [ext_resource type="Resource" uid="uid://bj4v5hf4g7vna" path="res://Actions/UpAction.tres" id="4_83udu"]
-[ext_resource type="Script" path="res://RootPlayerInputState.gd" id="4_jdolt"]
-[ext_resource type="Script" path="res://AIControlledEntity.gd" id="4_lkebv"]
-[ext_resource type="Script" path="res://ComboPlayerInputState.gd" id="4_t7sth"]
+[ext_resource type="Script" path="res://scripts/RootPlayerInputState.gd" id="4_v2ind"]
 [ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="5_0fxqc"]
-[ext_resource type="Script" path="res://TargettingPlayerInputState.gd" id="5_d6kq4"]
-[ext_resource type="Script" path="res://BattleUIManager.gd" id="5_jmv5p"]
-[ext_resource type="Script" path="res://StateMachine.gd" id="6_87lep"]
+[ext_resource type="Script" path="res://scripts/ComboPlayerInputState.gd" id="5_jw4pe"]
 [ext_resource type="Resource" uid="uid://dmnlucxnrfh2f" path="res://Actions/LeftAction.tres" id="6_ljfqr"]
-[ext_resource type="Script" path="res://PlayerInputState.gd" id="7_2jk7p"]
-[ext_resource type="Script" path="res://PlayerTurnUIState.gd" id="7_b8t82"]
+[ext_resource type="Script" path="res://scripts/TargettingPlayerInputState.gd" id="6_rtwuj"]
+[ext_resource type="Script" path="res://scripts/PlayerInputState.gd" id="7_kyyeo"]
 [ext_resource type="Resource" uid="uid://dn0p84udbmtxm" path="res://Actions/RightAction.tres" id="7_l1ucp"]
+[ext_resource type="Script" path="res://scripts/BattleUIManager.gd" id="8_2ivsi"]
 [ext_resource type="Resource" uid="uid://djn58vvb68l0x" path="res://entityData/testGuy1.tres" id="8_jn6cu"]
-[ext_resource type="Script" path="res://ProcessingPlayerTurnUIState.gd" id="8_tfvna"]
 [ext_resource type="Resource" uid="uid://ckdkaq0l06csq" path="res://entityData/testGuy2.tres" id="9_1pghg"]
-[ext_resource type="Script" path="res://EnemyTurnUIState.gd" id="9_yn4p8"]
+[ext_resource type="Script" path="res://scripts/PlayerTurnUIState.gd" id="9_ne3fc"]
 [ext_resource type="Resource" uid="uid://cn04ay78nvegb" path="res://entityData/testGuy3.tres" id="10_5bj8p"]
-[ext_resource type="Script" path="res://ActionRadial.gd" id="11_0g03e"]
+[ext_resource type="Script" path="res://scripts/ProcessingPlayerTurnUIState.gd" id="10_odxj3"]
+[ext_resource type="Script" path="res://scripts/EnemyTurnUIState.gd" id="11_lc5xg"]
 [ext_resource type="Resource" uid="uid://cdqtpiloj1cgu" path="res://entityData/testGuy4.tres" id="12_1k7p1"]
-[ext_resource type="Script" path="res://EnemyActionDisplay.gd" id="12_cgrrv"]
-[ext_resource type="Script" path="res://ComboDisplay.gd" id="12_ejswd"]
+[ext_resource type="Script" path="res://scripts/PartyDisplay.gd" id="12_wdpyt"]
 [ext_resource type="Resource" uid="uid://c6vpes2cepqjr" path="res://entityData/testGuy5.tres" id="13_qf7tk"]
-[ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://testIcon1.png" id="14_2cfoi"]
-[ext_resource type="Script" path="res://Actions/PartyDisplay.gd" id="14_6plnp"]
+[ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://textures/testIcon1.png" id="14_2cfoi"]
+[ext_resource type="Script" path="res://scripts/ComboDisplay.gd" id="14_8hl74"]
 [ext_resource type="Resource" uid="uid://dos4vj7bl2n4p" path="res://entityData/testGuy6.tres" id="14_w3kva"]
-[ext_resource type="PackedScene" uid="uid://celmkcso8kpdd" path="res://entity_display.tscn" id="15_r76id"]
-[ext_resource type="PackedScene" uid="uid://cqsymm8sn1ubb" path="res://Actions/action_view.tscn" id="16_yq0pa"]
-[ext_resource type="Script" path="res://TurnOrderDisplay.gd" id="26_enp32"]
-[ext_resource type="PackedScene" uid="uid://b4ws34qh8i5oo" path="res://entity_icon.tscn" id="27_rpp4b"]
-[ext_resource type="Texture2D" uid="uid://ckhopy6w546ke" path="res://arrowUp.png" id="32_fpt2a"]
-[ext_resource type="Texture2D" uid="uid://dg3bpgaac2yrw" path="res://arrowRight.png" id="33_b8tdo"]
-[ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://arrowDown.png" id="34_41fwc"]
-[ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://arrowLeft.png" id="35_r6gtd"]
-[ext_resource type="Script" path="res://EntitysDisplay.gd" id="36_y080k"]
-[ext_resource type="Script" path="res://EntityIconDisplay.gd" id="38_yaa7m"]
+[ext_resource type="PackedScene" uid="uid://celmkcso8kpdd" path="res://scenes/entity_display.tscn" id="15_r76id"]
+[ext_resource type="Script" path="res://scripts/ActionRadial.gd" id="16_cg3nu"]
+[ext_resource type="PackedScene" uid="uid://cqsymm8sn1ubb" path="res://scenes/action_view.tscn" id="16_yq0pa"]
+[ext_resource type="Script" path="res://scripts/EnemyActionDisplay.gd" id="17_b2j0s"]
+[ext_resource type="Script" path="res://scripts/TurnOrderDisplay.gd" id="18_7bkb4"]
+[ext_resource type="Texture2D" uid="uid://ckhopy6w546ke" path="res://textures/arrows/arrowUp.png" id="20_jc2o7"]
+[ext_resource type="Texture2D" uid="uid://dg3bpgaac2yrw" path="res://textures/arrows/arrowRight.png" id="21_4ypd4"]
+[ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://textures/arrows/arrowDown.png" id="22_jhvls"]
+[ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://textures/arrows/arrowLeft.png" id="23_l6d36"]
+[ext_resource type="Script" path="res://scripts/EntitysDisplay.gd" id="24_vam5r"]
+[ext_resource type="Script" path="res://scripts/EntityIconDisplay.gd" id="26_jl3mh"]
+[ext_resource type="Script" path="res://scripts/Team.gd" id="27_f3ih3"]
+[ext_resource type="PackedScene" uid="uid://b4ws34qh8i5oo" path="res://scenes/entity_icon.tscn" id="27_rpp4b"]
+[ext_resource type="Script" path="res://scripts/PlayerControlledEntity.gd" id="28_vkugu"]
+[ext_resource type="Script" path="res://scripts/AIControlledEntity.gd" id="36_rfd5f"]
 
 [node name="Main" type="Node"]
 metadata/_edit_vertical_guides_ = []
 
 [node name="BattleManager" type="Node" parent="."]
-script = ExtResource("1_1t254")
+script = ExtResource("1_etl7c")
 
 [node name="PlayerInputHandler" type="Node" parent="BattleManager"]
-script = ExtResource("2_c64ty")
+script = ExtResource("2_exfso")
 
 [node name="StateMachine" type="Node" parent="BattleManager/PlayerInputHandler"]
-script = ExtResource("6_87lep")
+script = ExtResource("3_fnwla")
 autostart = false
 
 [node name="RootPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
-script = ExtResource("4_jdolt")
+script = ExtResource("4_v2ind")
 
 [node name="ComboPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
-script = ExtResource("4_t7sth")
+script = ExtResource("5_jw4pe")
 
 [node name="TargettingPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine" node_paths=PackedStringArray("targetTeam")]
-script = ExtResource("5_d6kq4")
+script = ExtResource("6_rtwuj")
 targetTeam = NodePath("../../../Team2")
 
 [node name="Idle" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
-script = ExtResource("7_2jk7p")
+script = ExtResource("7_kyyeo")
 
 [node name="UI" type="Control" parent="BattleManager"]
 layout_mode = 3
@@ -73,27 +73,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_jmv5p")
+script = ExtResource("8_2ivsi")
 
 [node name="StateMachine" type="Node" parent="BattleManager/UI"]
-script = ExtResource("6_87lep")
+script = ExtResource("3_fnwla")
 autostart = false
 
 [node name="PlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("playerTurnRootDisplay", "actionRadial", "comboDisplay")]
-script = ExtResource("7_b8t82")
+script = ExtResource("9_ne3fc")
 playerTurnRootDisplay = NodePath("../../PlayerTurnRootDisplay")
 actionRadial = NodePath("../../ActionRadial")
 comboDisplay = NodePath("../../ComboDisplay")
 
 [node name="ProcessingPlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("comboDisplay")]
-script = ExtResource("8_tfvna")
+script = ExtResource("10_odxj3")
 comboDisplay = NodePath("../../ComboDisplay")
 
 [node name="DebugTimer" type="Timer" parent="BattleManager/UI/StateMachine/ProcessingPlayerTurn"]
 one_shot = true
 
 [node name="EnemyTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("enemyActionDisplay")]
-script = ExtResource("9_yn4p8")
+script = ExtResource("11_lc5xg")
 enemyActionDisplay = NodePath("../../EnemyActionDisplay")
 
 [node name="Timer" type="Timer" parent="BattleManager/UI/StateMachine/EnemyTurn"]
@@ -106,7 +106,7 @@ anchor_top = 0.75
 anchor_right = 0.25
 anchor_bottom = 1.0
 grow_vertical = 0
-script = ExtResource("14_6plnp")
+script = ExtResource("12_wdpyt")
 team = NodePath("../../Team1")
 entityDisplayPackedScene = ExtResource("15_r76id")
 
@@ -139,7 +139,7 @@ offset_top = -0.280029
 offset_right = -0.264038
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("12_ejswd")
+script = ExtResource("14_8hl74")
 actionViewScene = ExtResource("16_yq0pa")
 
 [node name="ColorRect" type="ColorRect" parent="BattleManager/UI/ComboDisplay"]
@@ -167,7 +167,7 @@ anchor_left = 0.75
 anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("14_6plnp")
+script = ExtResource("12_wdpyt")
 team = NodePath("../../Team2")
 entityDisplayPackedScene = ExtResource("15_r76id")
 
@@ -201,7 +201,7 @@ offset_right = 0.0479736
 offset_bottom = 0.223999
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("11_0g03e")
+script = ExtResource("16_cg3nu")
 
 [node name="ColorRect" type="ColorRect" parent="BattleManager/UI/ActionRadial"]
 layout_mode = 1
@@ -246,7 +246,7 @@ offset_right = 0.0479736
 offset_bottom = 0.223999
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("12_cgrrv")
+script = ExtResource("17_b2j0s")
 
 [node name="ActionName" type="RichTextLabel" parent="BattleManager/UI/EnemyActionDisplay"]
 layout_mode = 1
@@ -279,7 +279,7 @@ anchor_right = 0.299
 anchor_bottom = 0.131
 offset_right = 0.551971
 offset_bottom = 0.111992
-script = ExtResource("26_enp32")
+script = ExtResource("18_7bkb4")
 entityIcon = ExtResource("27_rpp4b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/UI/TurnOrderDisplay"]
@@ -327,7 +327,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("32_fpt2a")
+texture = ExtResource("20_jc2o7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -342,7 +342,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("33_b8tdo")
+texture = ExtResource("21_4ypd4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -357,7 +357,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-texture = ExtResource("34_41fwc")
+texture = ExtResource("22_jhvls")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -372,7 +372,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
-texture = ExtResource("35_r6gtd")
+texture = ExtResource("23_l6d36")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
@@ -389,7 +389,7 @@ anchor_bottom = 0.19
 offset_top = -0.12001
 offset_right = 282.0
 offset_bottom = 337.88
-script = ExtResource("36_y080k")
+script = ExtResource("24_vam5r")
 team = NodePath("../../Team1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/EntitysDisplay"]
@@ -409,7 +409,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("14_2cfoi")
 expand_mode = 5
-script = ExtResource("38_yaa7m")
+script = ExtResource("26_jl3mh")
 
 [node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer/TextureRect"]
 visible = false
@@ -425,7 +425,7 @@ offset_right = 123.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("35_r6gtd")
+texture = ExtResource("23_l6d36")
 
 [node name="TextureRect2" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer"]
 custom_minimum_size = Vector2(84, 0)
@@ -434,7 +434,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("14_2cfoi")
 expand_mode = 5
-script = ExtResource("38_yaa7m")
+script = ExtResource("26_jl3mh")
 
 [node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer/TextureRect2"]
 visible = false
@@ -450,7 +450,7 @@ offset_right = 123.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("35_r6gtd")
+texture = ExtResource("23_l6d36")
 
 [node name="TextureRect3" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer"]
 custom_minimum_size = Vector2(84, 0)
@@ -459,7 +459,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("14_2cfoi")
 expand_mode = 5
-script = ExtResource("38_yaa7m")
+script = ExtResource("26_jl3mh")
 
 [node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer/TextureRect3"]
 visible = false
@@ -475,7 +475,7 @@ offset_right = 123.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("35_r6gtd")
+texture = ExtResource("23_l6d36")
 
 [node name="EntitysDisplay2" type="Control" parent="BattleManager/UI" node_paths=PackedStringArray("team")]
 layout_mode = 1
@@ -487,7 +487,7 @@ offset_left = -280.0
 offset_top = -0.12001
 offset_right = 2.0
 offset_bottom = 337.88
-script = ExtResource("36_y080k")
+script = ExtResource("24_vam5r")
 team = NodePath("../../Team2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/EntitysDisplay2"]
@@ -507,7 +507,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("14_2cfoi")
 expand_mode = 5
-script = ExtResource("38_yaa7m")
+script = ExtResource("26_jl3mh")
 
 [node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer/TextureRect"]
 visible = false
@@ -523,7 +523,7 @@ offset_right = -52.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("33_b8tdo")
+texture = ExtResource("21_4ypd4")
 
 [node name="TextureRect2" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer"]
 custom_minimum_size = Vector2(84, 0)
@@ -532,7 +532,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("14_2cfoi")
 expand_mode = 5
-script = ExtResource("38_yaa7m")
+script = ExtResource("26_jl3mh")
 
 [node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer/TextureRect2"]
 visible = false
@@ -548,7 +548,7 @@ offset_right = -52.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("33_b8tdo")
+texture = ExtResource("21_4ypd4")
 
 [node name="TextureRect3" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer"]
 custom_minimum_size = Vector2(84, 0)
@@ -557,7 +557,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("14_2cfoi")
 expand_mode = 5
-script = ExtResource("38_yaa7m")
+script = ExtResource("26_jl3mh")
 
 [node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer/TextureRect3"]
 visible = false
@@ -573,14 +573,14 @@ offset_right = -52.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("33_b8tdo")
+texture = ExtResource("21_4ypd4")
 
 [node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
-script = ExtResource("1_60wg8")
+script = ExtResource("27_f3ih3")
 enemyTeam = NodePath("../Team2")
 
 [node name="Player1Slot" type="Node" parent="BattleManager/Team1"]
-script = ExtResource("3_n6bvo")
+script = ExtResource("28_vkugu")
 upAction = ExtResource("4_83udu")
 downAction = ExtResource("5_0fxqc")
 leftAction = ExtResource("6_ljfqr")
@@ -588,7 +588,7 @@ rightAction = ExtResource("7_l1ucp")
 entityData = ExtResource("8_jn6cu")
 
 [node name="Player2Slot" type="Node" parent="BattleManager/Team1"]
-script = ExtResource("3_n6bvo")
+script = ExtResource("28_vkugu")
 upAction = ExtResource("4_83udu")
 downAction = ExtResource("5_0fxqc")
 leftAction = ExtResource("6_ljfqr")
@@ -596,7 +596,7 @@ rightAction = ExtResource("7_l1ucp")
 entityData = ExtResource("9_1pghg")
 
 [node name="Player3Slot" type="Node" parent="BattleManager/Team1"]
-script = ExtResource("3_n6bvo")
+script = ExtResource("28_vkugu")
 upAction = ExtResource("4_83udu")
 downAction = ExtResource("5_0fxqc")
 leftAction = ExtResource("6_ljfqr")
@@ -604,20 +604,20 @@ rightAction = ExtResource("7_l1ucp")
 entityData = ExtResource("10_5bj8p")
 
 [node name="Team2" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
-script = ExtResource("1_60wg8")
+script = ExtResource("27_f3ih3")
 enemyTeam = NodePath("../Team1")
 
 [node name="Enemy1Slot" type="Node" parent="BattleManager/Team2"]
-script = ExtResource("4_lkebv")
-actions = Array[Resource("res://Action.gd")]([ExtResource("4_83udu")])
+script = ExtResource("36_rfd5f")
+actions = Array[Resource("res://scripts/Action.gd")]([ExtResource("4_83udu")])
 entityData = ExtResource("12_1k7p1")
 
 [node name="Enemy2Slot" type="Node" parent="BattleManager/Team2"]
-script = ExtResource("4_lkebv")
-actions = Array[Resource("res://Action.gd")]([ExtResource("4_83udu")])
+script = ExtResource("36_rfd5f")
+actions = Array[Resource("res://scripts/Action.gd")]([ExtResource("4_83udu")])
 entityData = ExtResource("13_qf7tk")
 
 [node name="Enemy3Slot" type="Node" parent="BattleManager/Team2"]
-script = ExtResource("4_lkebv")
-actions = Array[Resource("res://Action.gd")]([ExtResource("5_0fxqc")])
+script = ExtResource("36_rfd5f")
+actions = Array[Resource("res://scripts/Action.gd")]([ExtResource("5_0fxqc")])
 entityData = ExtResource("14_w3kva")

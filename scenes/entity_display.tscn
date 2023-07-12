@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://celmkcso8kpdd"]
 
-[ext_resource type="Script" path="res://EntityDisplay.gd" id="1_s0is3"]
-[ext_resource type="Texture2D" uid="uid://cxct5vy3eikym" path="res://icon.svg" id="1_xsdvq"]
+[ext_resource type="Script" path="res://scripts/EntityDisplay.gd" id="1_s0is3"]
+[ext_resource type="Texture2D" uid="uid://cxct5vy3eikym" path="res://textures/icon.svg" id="1_xsdvq"]
 
 [node name="EntityDisplay" type="Control"]
 custom_minimum_size = Vector2(0, 32)

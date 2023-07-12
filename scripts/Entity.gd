@@ -14,7 +14,6 @@ signal Untargeted
 #these are the current values
 @export var entityData : EntityData
 @export var speed = 5
-
 var health: int = 10
 var ap: int
 var isAlive : bool = true

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqsymm8sn1ubb"]
 
-[ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://arrowDown.png" id="1_4x6s8"]
-[ext_resource type="Script" path="res://Actions/ActionView.gd" id="1_8y237"]
-[ext_resource type="Texture2D" uid="uid://ckhopy6w546ke" path="res://arrowUp.png" id="2_7kpuj"]
-[ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://arrowLeft.png" id="4_rk38q"]
-[ext_resource type="Texture2D" uid="uid://dg3bpgaac2yrw" path="res://arrowRight.png" id="5_rspl3"]
+[ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://textures/arrows/arrowDown.png" id="1_4x6s8"]
+[ext_resource type="Script" path="res://scripts/ActionView.gd" id="1_8y237"]
+[ext_resource type="Texture2D" uid="uid://ckhopy6w546ke" path="res://textures/arrows/arrowUp.png" id="2_7kpuj"]
+[ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://textures/arrows/arrowLeft.png" id="4_rk38q"]
+[ext_resource type="Texture2D" uid="uid://dg3bpgaac2yrw" path="res://textures/arrows/arrowRight.png" id="5_rspl3"]
 
 [node name="ActionView" type="Control"]
 layout_mode = 3
