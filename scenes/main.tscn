@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=38 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
 [ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
@@ -7,15 +7,10 @@
 [ext_resource type="Script" path="res://scripts/RootPlayerInputState.gd" id="4_v2ind"]
 [ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="5_0fxqc"]
 [ext_resource type="Script" path="res://scripts/ComboPlayerInputState.gd" id="5_jw4pe"]
-[ext_resource type="Resource" uid="uid://dmnlucxnrfh2f" path="res://Actions/LeftAction.tres" id="6_ljfqr"]
 [ext_resource type="Script" path="res://scripts/TargettingPlayerInputState.gd" id="6_rtwuj"]
 [ext_resource type="Script" path="res://scripts/PlayerInputState.gd" id="7_kyyeo"]
-[ext_resource type="Resource" uid="uid://dn0p84udbmtxm" path="res://Actions/RightAction.tres" id="7_l1ucp"]
 [ext_resource type="Script" path="res://scripts/BattleUIManager.gd" id="8_2ivsi"]
-[ext_resource type="Resource" uid="uid://djn58vvb68l0x" path="res://entityData/testGuy1.tres" id="8_jn6cu"]
-[ext_resource type="Resource" uid="uid://ckdkaq0l06csq" path="res://entityData/testGuy2.tres" id="9_1pghg"]
 [ext_resource type="Script" path="res://scripts/PlayerTurnUIState.gd" id="9_ne3fc"]
-[ext_resource type="Resource" uid="uid://cn04ay78nvegb" path="res://entityData/testGuy3.tres" id="10_5bj8p"]
 [ext_resource type="Script" path="res://scripts/ProcessingPlayerTurnUIState.gd" id="10_odxj3"]
 [ext_resource type="Script" path="res://scripts/EnemyTurnUIState.gd" id="11_lc5xg"]
 [ext_resource type="Resource" uid="uid://cdqtpiloj1cgu" path="res://entityData/testGuy4.tres" id="12_1k7p1"]
@@ -38,6 +33,9 @@
 [ext_resource type="Script" path="res://scripts/Team.gd" id="27_f3ih3"]
 [ext_resource type="PackedScene" uid="uid://b4ws34qh8i5oo" path="res://scenes/entity_icon.tscn" id="27_rpp4b"]
 [ext_resource type="Script" path="res://scripts/PlayerControlledEntity.gd" id="28_vkugu"]
+[ext_resource type="Resource" uid="uid://d06vgcl4yx24g" path="res://entityData/playerTest1.tres" id="29_48y18"]
+[ext_resource type="Resource" uid="uid://jngymbsqee81" path="res://entityData/playerTest2.tres" id="30_46fxk"]
+[ext_resource type="Resource" uid="uid://c66715vfv7mg8" path="res://entityData/playerTest3.tres" id="31_hfwxg"]
 [ext_resource type="Script" path="res://scripts/AIControlledEntity.gd" id="36_rfd5f"]
 
 [node name="Main" type="Node"]
@@ -581,27 +579,15 @@ enemyTeam = NodePath("../Team2")
 
 [node name="Player1Slot" type="Node" parent="BattleManager/Team1"]
 script = ExtResource("28_vkugu")
-upAction = ExtResource("4_83udu")
-downAction = ExtResource("5_0fxqc")
-leftAction = ExtResource("6_ljfqr")
-rightAction = ExtResource("7_l1ucp")
-entityData = ExtResource("8_jn6cu")
+entityData = ExtResource("29_48y18")
 
 [node name="Player2Slot" type="Node" parent="BattleManager/Team1"]
 script = ExtResource("28_vkugu")
-upAction = ExtResource("4_83udu")
-downAction = ExtResource("5_0fxqc")
-leftAction = ExtResource("6_ljfqr")
-rightAction = ExtResource("7_l1ucp")
-entityData = ExtResource("9_1pghg")
+entityData = ExtResource("30_46fxk")
 
 [node name="Player3Slot" type="Node" parent="BattleManager/Team1"]
 script = ExtResource("28_vkugu")
-upAction = ExtResource("4_83udu")
-downAction = ExtResource("5_0fxqc")
-leftAction = ExtResource("6_ljfqr")
-rightAction = ExtResource("7_l1ucp")
-entityData = ExtResource("10_5bj8p")
+entityData = ExtResource("31_hfwxg")
 
 [node name="Team2" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("27_f3ih3")

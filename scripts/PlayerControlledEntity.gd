@@ -3,20 +3,30 @@ extends Entity
 
 var actionBuffer : ActionBuffer
 
-@export var upAction: Action
-@export var downAction : Action
-@export var leftAction: Action
-@export var rightAction : Action
+#these actions ought to be in the resource as well
+
+var upAction: Action
+var downAction : Action
+var leftAction: Action
+var rightAction : Action
 
 signal ActionBufferUpdated
 signal TargetChanged(target: Entity)
 
 
 func _ready() -> void:
+	super._ready()
+	
+	upAction = entityData.upAction
+	leftAction = entityData.leftAction
+	downAction = entityData.downAction
+	rightAction = entityData.rightAction
+	
 	set_process(false)
+
 
 func DoTurn():
 	super.DoTurn()
-	actionBuffer = ActionBuffer.new()
+	actionBuffer = ActionBuffer.new(ap)
 	PlayerInputHandler.instance.StartPlayerControlledEntityTurn(self)
 

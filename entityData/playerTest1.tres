@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerControlledEntityData" load_steps=7 format=3 uid="uid://d06vgcl4yx24g"]
+
+[ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="1_6pd8p"]
+[ext_resource type="Script" path="res://scripts/PlayerControlledEntityData.gd" id="1_bcmc0"]
+[ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://textures/testIcon1.png" id="2_1j0jg"]
+[ext_resource type="Resource" uid="uid://dmnlucxnrfh2f" path="res://Actions/LeftAction.tres" id="3_f8g21"]
+[ext_resource type="Resource" uid="uid://dn0p84udbmtxm" path="res://Actions/RightAction.tres" id="4_monqc"]
+[ext_resource type="Resource" uid="uid://bj4v5hf4g7vna" path="res://Actions/UpAction.tres" id="6_o02jy"]
+
+[resource]
+script = ExtResource("1_bcmc0")
+upAction = ExtResource("6_o02jy")
+downAction = ExtResource("1_6pd8p")
+leftAction = ExtResource("3_f8g21")
+rightAction = ExtResource("4_monqc")
+icon = ExtResource("2_1j0jg")
+maxHealth = 10
+ap = 4
+speed = 10

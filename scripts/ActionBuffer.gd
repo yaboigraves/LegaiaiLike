@@ -6,6 +6,10 @@ var actionSize : int = 0
 var actions : Array[Action]
 var target : Entity
 
+func _init(ap:int = 4):
+	maxActionSize = ap
+
+
 func IsValidCombo():
 	if actionSize > 0:
 		return true

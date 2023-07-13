@@ -9,7 +9,6 @@ func enter(args = {}):
 	
 func update(delta):
 	super.update(delta)
-	
 
 	if Input.is_action_just_pressed("up"):
 		state_machine.transition_to("ComboPlayerInputState", {"entity" : currentEntity})

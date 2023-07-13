@@ -13,12 +13,19 @@ signal Untargeted
 
 #these are the current values
 @export var entityData : EntityData
-@export var speed = 5
+var speed = 5
+var maxHealth : int = 10
 var health: int = 10
 var ap: int
+
 var isAlive : bool = true
 
 
+func _ready() -> void:
+	self.maxHealth = entityData.maxHealth
+	self.health = maxHealth
+	self.ap = entityData.ap
+	self.speed = entityData.speed
 
 func ApplyActionToSelf(action:Action):
 	health -= action.damage

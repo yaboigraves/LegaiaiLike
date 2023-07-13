@@ -13,7 +13,7 @@ signal transitioned(state)
 func _ready() -> void:
 	if initial_state:
 		state = get_node(initial_state) as State
-	await owner.ready
+	#await owner.ready
 
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
@@ -27,7 +27,10 @@ func _ready() -> void:
 		set_process(true)
 		set_physics_process(true)
 		set_process_unhandled_input(true)
-
+	else:
+		set_process(false)
+		set_physics_process(false)
+		set_process_unhandled_input(false)
 
 
 func StartMachine():

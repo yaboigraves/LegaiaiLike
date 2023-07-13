@@ -77,18 +77,26 @@ func CacheTeamRefs():
 func RefreshTurnOrder(team,entity):
 	turnOrder.erase(entity)
 	print(turnOrder)
+
+func GetAllAliveEntities() -> Array[Entity]:
+	var aliveEnties = team1.GetAliveEntities().duplicate(true)
+	aliveEnties.append_array(team2.GetAliveEntities())	
+	return aliveEnties
 	
+func SortEntitiesBySpeed(entity1,entity2):
+	return entity1.speed > entity2.speed
 #this is for initialization
 func ConstructTurnOrder():
 	turnOrder.clear()
-	var team1Entities = team1.GetAliveEntities()
-	var team2Entities = team2.GetAliveEntities()
 	
-	for i in range(max(team1Entities.size(),team2Entities.size())):
-		if team1Entities.size() > i:
-			turnOrder.append(team1Entities[i])
-		if team2Entities.size() > i:
-			turnOrder.append(team2Entities[i])
+	turnOrder = GetAllAliveEntities()
+	turnOrder.sort_custom(SortEntitiesBySpeed)
+
+#	for i in range(max(team1Entities.size(),team2Entities.size())):
+#		if team1Entities.size() > i:
+#			turnOrder.append(team1Entities[i])
+#		if team2Entities.size() > i:
+#			turnOrder.append(team2Entities[i])
 	
 	print(turnOrder)
 

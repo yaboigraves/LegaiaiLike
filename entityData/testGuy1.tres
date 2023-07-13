@@ -6,3 +6,6 @@
 [resource]
 script = ExtResource("1_rinhf")
 icon = ExtResource("1_jolot")
+maxHealth = 14
+ap = 6
+speed = 10
