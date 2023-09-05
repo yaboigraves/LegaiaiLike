@@ -2,6 +2,11 @@ class_name BattleUIManager
 extends Node
 
 #note MAKE SURE THIS IS HIGH IN THE INIT ORDER SO TEAMS AND STUFF DONT GET BUILT OUT
+#this can basically get completly remade
+#well actually
+#they just need some renaming
+#so I guess start by basically just grabbing this scene setup 
+
 
 static var instance : BattleUIManager
 

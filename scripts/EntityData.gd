@@ -5,3 +5,4 @@ extends Resource
 @export var maxHealth : int = 10
 @export var ap : int = 4
 @export var speed = 10
+
