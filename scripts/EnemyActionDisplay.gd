@@ -3,4 +3,4 @@ extends Control
 
 
 func ShowAction(action:Action):
-	$ActionName.text = "[center]" + action.actionName
+	$ActionName.text = "[center]" + action.name

@@ -9,7 +9,7 @@ extends Control
 
 
 func LoadAction(action :Action):
-	$HBoxContainer/ActionName.text = action.actionName
+	$HBoxContainer/ActionName.text = action.name
 	$HBoxContainer/Cost.text = str(action.actionCost)
 	
 	match(action.direction):

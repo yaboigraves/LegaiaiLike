@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://dn0p84udbmtxm"]
-
-[ext_resource type="Script" path="res://scripts/Action.gd" id="1_61eix"]
-
-[resource]
-script = ExtResource("1_61eix")
-actionName = "Morty"
-actionCost = 1
-direction = 1

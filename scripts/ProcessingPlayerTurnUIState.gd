@@ -10,12 +10,13 @@ func enter(_msg = {}):
 
 	ProcessActionBuffer()
 	
-	
-	
 func ProcessActionBuffer():
 	$DebugTimer.start()
 	
 	await $DebugTimer.timeout
+	#come back here, this is kind of dumb
+	#yeah this is silly
+	
 	player.TurnDone.emit(player)
 
 func exit():

@@ -3,8 +3,6 @@ extends Entity
 
 var actionBuffer : ActionBuffer
 
-#these actions ought to be in the resource as well
-
 var upAction: Action
 var downAction : Action
 var leftAction: Action
@@ -17,10 +15,21 @@ signal TargetChanged(target: Entity)
 func _ready() -> void:
 	super._ready()
 	
-	upAction = entityData.upAction
-	leftAction = entityData.leftAction
-	downAction = entityData.downAction
-	rightAction = entityData.rightAction
+	#so we gotta actually like spawn our actions now
+	#cause they start as packed scenes
+	#so entities can create child nodes for these
+	#kind of annoying but whatever
+	if entityData.upAction:
+		upAction = entityData.upAction.instantiate()
+	
+	if entityData.leftAction:
+		leftAction = entityData.leftAction
+	
+	if entityData.downAction:
+		downAction = entityData.downAction
+	
+	if entityData.rightAction:
+		rightAction = entityData.rightAction
 	
 	set_process(false)
 
@@ -28,5 +37,7 @@ func _ready() -> void:
 func DoTurn():
 	super.DoTurn()
 	actionBuffer = ActionBuffer.new(ap)
-	PlayerInputHandler.instance.StartPlayerControlledEntityTurn(self)
+	
+	#TODO: also make this part of a messenger
+	#PlayerInputHandler.instance.StartPlayerControlledEntityTurn(self)
 

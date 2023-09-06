@@ -3,7 +3,7 @@ extends Entity
 
 #TODO: we can add basic AI code here for rules they follow, for now lets just give them a bank of actions
 
-@export var actions: Array[Action]
+@export var actions: Array[PackedScene]
 var selectedAction : Action
 
 func DoTurn():
@@ -11,7 +11,7 @@ func DoTurn():
 	
 	#figure out action and target
 	#...
-	selectedAction = actions[0]
+	#selectedAction = actions[0]
 	#pass off the processed stuff to the ui with a signal
 	super.DoTurn()
 

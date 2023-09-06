@@ -67,6 +67,12 @@ func HandleTargetChanged(target: Entity):
 func exit():
 	super.exit()
 	
+	#we listen directly to the player
+	#which is kind of silly
+	#UI can just bind to the messenger
+	
+	#I like that better rather than juggling a player ref
+	
 	player.TurnReady.disconnect(HandleTurnReady)
 	player.ActionBufferUpdated.disconnect(HandleActionBufferUpdated)
 	player.TargetChanged.disconnect(HandleTargetChanged)

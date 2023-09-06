@@ -1,7 +1,7 @@
 class_name PlayerControlledEntityData
 extends EntityData
 
-@export var upAction: Action
-@export var downAction : Action
-@export var leftAction: Action
-@export var rightAction : Action
+@export var upAction: PackedScene
+@export var downAction : PackedScene
+@export var leftAction: PackedScene
+@export var rightAction : PackedScene

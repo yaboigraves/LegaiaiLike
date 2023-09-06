@@ -6,10 +6,16 @@ signal TeamMemberDied(team:Team, entity:Entity)
 signal TurnDone(team:Team, entity:Entity)
 signal EntitiesUpdated
 
+#marking enemy team here is kinda weird
+#i dont really like it 
+#I think actions will have some parameters for targetting
+#and that will use the caster to find the enemy team
+#rather than caching  it
+
 @export var enemyTeam: Team
 
-
 func _ready() -> void:
+	BattleBlackboard.Instance.teams.append(self)
 	
 	for entity in GetEntities():
 		entity.TurnReady.connect(HandleEntityTurnReady)
@@ -24,10 +30,14 @@ func HandleEntityTurnReady(entity:Entity):
 		randomTarget.ApplyActionToSelf(entity.selectedAction)
 	
 	if entity is PlayerControlledEntity:
+		
+		#technically you should be able to target your allies too ngl
+		#lets fix that later
 		var testTarget = entity.actionBuffer.target
+		
 		for action in entity.actionBuffer.actions:
-			testTarget.ApplyActionToSelf(action)
-	
+			#testTarget.ApplyActionToSelf(action)
+			print("Trying to do  thing")
 
 
 func IsLoseConditonMet() -> bool:

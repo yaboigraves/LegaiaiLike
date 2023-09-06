@@ -16,7 +16,14 @@ func CacheActionViews():
 	rightActionView = $VBoxContainer/RightAction as ActionView
 
 func SetActions(entity : PlayerControlledEntity):
-	upActionView.LoadAction(entity.upAction)
-	leftActionView.LoadAction(entity.leftAction)
-	downActionView.LoadAction(entity.downAction)
-	rightActionView.LoadAction(entity.rightAction)
+	if entity.upAction:
+		upActionView.LoadAction(entity.upAction)
+	
+	if entity.leftAction:
+		leftActionView.LoadAction(entity.leftAction)
+	
+	if entity.downAction:
+		downActionView.LoadAction(entity.downAction)
+	
+	if entity.rightAction:
+		rightActionView.LoadAction(entity.rightAction)

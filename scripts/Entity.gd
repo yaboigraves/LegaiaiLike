@@ -1,6 +1,8 @@
 class_name Entity
 extends Node
 
+
+
 signal HealthChanged
 signal TurnStarted
 signal TurnReady(entity:Entity)
@@ -22,11 +24,15 @@ var isAlive : bool = true
 
 
 func _ready() -> void:
+
+	BattleBlackboard.Instance.entities.append(self)
+	
 	self.maxHealth = entityData.maxHealth
 	self.health = maxHealth
 	self.ap = entityData.ap
 	self.speed = entityData.speed
 
+#REMOVE
 func ApplyActionToSelf(action:Action):
 	health -= action.damage
 	HealthChanged.emit()
@@ -36,4 +42,6 @@ func ApplyActionToSelf(action:Action):
 		print(self, " died!")
 
 func DoTurn():
-	BattleUIManager.instance.BindEntityToUI(self)
+	#not necessary because we should be listening to messenger
+	#BattleUIManager.instanceB.BindEntityToUI(self)	
+	pass

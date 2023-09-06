@@ -3,9 +3,7 @@
 [ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
 [ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
 [ext_resource type="Script" path="res://scripts/StateMachine.gd" id="3_fnwla"]
-[ext_resource type="Resource" uid="uid://bj4v5hf4g7vna" path="res://Actions/UpAction.tres" id="4_83udu"]
 [ext_resource type="Script" path="res://scripts/RootPlayerInputState.gd" id="4_v2ind"]
-[ext_resource type="Resource" uid="uid://01dqado1b6jh" path="res://Actions/DownAction.tres" id="5_0fxqc"]
 [ext_resource type="Script" path="res://scripts/ComboPlayerInputState.gd" id="5_jw4pe"]
 [ext_resource type="Script" path="res://scripts/TargettingPlayerInputState.gd" id="6_rtwuj"]
 [ext_resource type="Script" path="res://scripts/PlayerInputState.gd" id="7_kyyeo"]
@@ -37,6 +35,8 @@
 [ext_resource type="Resource" uid="uid://jngymbsqee81" path="res://entityData/playerTest2.tres" id="30_46fxk"]
 [ext_resource type="Resource" uid="uid://c66715vfv7mg8" path="res://entityData/playerTest3.tres" id="31_hfwxg"]
 [ext_resource type="Script" path="res://scripts/AIControlledEntity.gd" id="36_rfd5f"]
+[ext_resource type="Script" path="res://scripts/TurnOrderManager.gd" id="36_tnia6"]
+[ext_resource type="Script" path="res://scripts/BattleBlackboard.gd" id="37_ca1w2"]
 
 [node name="Main" type="Node"]
 metadata/_edit_vertical_guides_ = []
@@ -595,15 +595,18 @@ enemyTeam = NodePath("../Team1")
 
 [node name="Enemy1Slot" type="Node" parent="BattleManager/Team2"]
 script = ExtResource("36_rfd5f")
-actions = Array[Resource("res://scripts/Action.gd")]([ExtResource("4_83udu")])
 entityData = ExtResource("12_1k7p1")
 
 [node name="Enemy2Slot" type="Node" parent="BattleManager/Team2"]
 script = ExtResource("36_rfd5f")
-actions = Array[Resource("res://scripts/Action.gd")]([ExtResource("4_83udu")])
 entityData = ExtResource("13_qf7tk")
 
 [node name="Enemy3Slot" type="Node" parent="BattleManager/Team2"]
 script = ExtResource("36_rfd5f")
-actions = Array[Resource("res://scripts/Action.gd")]([ExtResource("5_0fxqc")])
 entityData = ExtResource("14_w3kva")
+
+[node name="TurnOrderManager" type="Node" parent="BattleManager"]
+script = ExtResource("36_tnia6")
+
+[node name="BattleBlackboard" type="Node" parent="BattleManager"]
+script = ExtResource("37_ca1w2")
