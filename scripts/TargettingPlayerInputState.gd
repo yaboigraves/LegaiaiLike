@@ -21,14 +21,14 @@ func enter(args = {}):
 func update(delta):
 	super.update(delta)
 	
-	if Input.is_action_just_pressed("cancel"):
-		state_machine.transition_to("ComboPlayerInputState", {"entity": currentEntity})
-	
-	elif currentEntity.actionBuffer.target != null and Input.is_action_just_pressed("confirm"):
-		print("now we can be done selected")
-		currentEntity.TurnReady.emit(currentEntity)
-		state_machine.transition_to("Idle", {"entity": currentEntity})
-	
+#	if Input.is_action_just_pressed("cancel"):
+#		state_machine.transition_to("ComboPlayerInputState", {"entity": currentEntity})
+#
+#	elif currentEntity.actionBuffer.target != null and Input.is_action_just_pressed("confirm"):
+#		print("now we can be done selected")
+#		currentEntity.TurnReady.emit(currentEntity)
+#		state_machine.transition_to("Idle", {"entity": currentEntity})
+#
 	
 #	elif Input.is_action_just_pressed("up") and targetTeam.IsEntityAtIndexAlive(0):
 #		currentEntity.actionBuffer.target = targetTeam.GetEntityAtIndex(0)
@@ -53,14 +53,15 @@ func update(delta):
 		UpdateSelection()
 	
 func UpdateSelection():
-	if currentEntity.actionBuffer.target != null:
-		currentEntity.actionBuffer.target.Untargeted.emit()
-	
-	currentEntity.actionBuffer.target = targets[selectionIndex]
-	currentEntity.TargetChanged.emit(currentEntity.actionBuffer.target )
-	currentEntity.actionBuffer.target.Targeted.emit()
+	pass
+#	if currentEntity.actionBuffer.target != null:
+#		currentEntity.actionBuffer.target.Untargeted.emit()
+#
+#	currentEntity.actionBuffer.target = targets[selectionIndex]
+#	currentEntity.TargetChanged.emit(currentEntity.actionBuffer.target )
+#	currentEntity.actionBuffer.target.Targeted.emit()
 
 func exit():
 	super.exit()
-	if currentEntity.actionBuffer.target != null:
-		currentEntity.actionBuffer.target.Untargeted.emit()
+#	if currentEntity.actionBuffer.target != null:
+#		currentEntity.actionBuffer.target.Untargeted.emit()

@@ -38,6 +38,8 @@ func DoTurn():
 	super.DoTurn()
 	actionBuffer = ActionBuffer.new(ap)
 	
+	
+	
 	#TODO: also make this part of a messenger
 	#PlayerInputHandler.instance.StartPlayerControlledEntityTurn(self)
 

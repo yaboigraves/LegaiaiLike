@@ -1,8 +1,9 @@
 class_name PlayerInputState
 extends State
 
-var currentEntity: PlayerControlledEntity
+var current_entity: PlayerControlledEntity
 
-func enter(args = {}):
-	currentEntity = args.entity
-	currentEntity.TurnStarted.emit()
+func SetCurrentEntity(entity: Entity):
+	current_entity = entity
+
+

@@ -24,29 +24,31 @@ func enter(_msg ={}):
 #this code is terrible re-write later
 func update(_delta: float):
 
-	if Input.is_action_just_pressed("confirm") and currentEntity.actionBuffer.IsValidCombo():
-		#currentEntity.TurnReady.emit(currentEntity)
-		state_machine.transition_to("TargettingPlayerInputState",{"entity": currentEntity})
+	pass
+
+#	if Input.is_action_just_pressed("confirm") and currentEntity.actionBuffer.IsValidCombo():
+#		#currentEntity.TurnReady.emit(currentEntity)
+#		state_machine.transition_to("TargettingPlayerInputState",{"entity": currentEntity})
+##
+#	elif Input.is_action_just_pressed("cancel"):
+#		if currentEntity.actionBuffer.actions.size() > 0:
+#			currentEntity.actionBuffer.RemoveLastAction()
+#			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
+#		else:
+#			state_machine.transition_to("RootPlayerInputState", {"entity": currentEntity})
+#	elif Input.is_action_just_pressed("up"):
+#		if currentEntity.actionBuffer.TryAddAction(currentEntity.upAction):
+#			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
 #
-	elif Input.is_action_just_pressed("cancel"):
-		if currentEntity.actionBuffer.actions.size() > 0:
-			currentEntity.actionBuffer.RemoveLastAction()
-			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
-		else:
-			state_machine.transition_to("RootPlayerInputState", {"entity": currentEntity})
-	elif Input.is_action_just_pressed("up"):
-		if currentEntity.actionBuffer.TryAddAction(currentEntity.upAction):
-			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
-
-	elif Input.is_action_just_pressed("down"):
-		if currentEntity.actionBuffer.TryAddAction(currentEntity.downAction):
-			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
-
-	elif Input.is_action_just_pressed("left"):
-		if currentEntity.actionBuffer.TryAddAction(currentEntity.leftAction):
-			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
-
-	elif Input.is_action_just_pressed("right"):
-		if currentEntity.actionBuffer.TryAddAction(currentEntity.rightAction):
-			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
-
+#	elif Input.is_action_just_pressed("down"):
+#		if currentEntity.actionBuffer.TryAddAction(currentEntity.downAction):
+#			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
+#
+#	elif Input.is_action_just_pressed("left"):
+#		if currentEntity.actionBuffer.TryAddAction(currentEntity.leftAction):
+#			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
+#
+#	elif Input.is_action_just_pressed("right"):
+#		if currentEntity.actionBuffer.TryAddAction(currentEntity.rightAction):
+#			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
+#

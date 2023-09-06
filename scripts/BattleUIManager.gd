@@ -19,7 +19,8 @@ func _init():
 
 func _ready() -> void:
 	Messenger.TurnOrderUpdated.connect(DrawTurnOrder)
-
+	Messenger.EntityTurnStarted.connect(BindEntityToUI)
+	
 	
 func BindEntityToUI(entity: Entity):
 	if entity is PlayerControlledEntity:
@@ -27,7 +28,6 @@ func BindEntityToUI(entity: Entity):
 	
 	elif entity is AIControlledEntity:
 		$StateMachine.transition_to("EnemyTurn",{"enemy" : entity as AIControlledEntity})
-
 
 
 func DrawTurnOrder(turnOrder, index):

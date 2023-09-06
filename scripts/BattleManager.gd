@@ -95,3 +95,16 @@ func _ready() -> void:
 #func HandleTeamLost(team:Team):
 #	print(team, " loses!")
 #	get_tree().reload_current_scene()
+
+#check the entity type here? nah in turn order thing
+
+
+func _on_turn_order_manager_turn_starting(entity) -> void:
+	if entity is PlayerControlledEntity:
+		$StateMachine.transition_to("PlayerTurn", {"entity": entity})
+	elif entity is AIControlledEntity:
+		pass
+
+
+func _on_player_input_handler_got_player_input(input) -> void:
+	$StateMachine.HandleInput(input)

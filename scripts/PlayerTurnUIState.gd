@@ -8,7 +8,9 @@ var player : PlayerControlledEntity
 
 func initialize():
 	super.initialize()
-	PlayerInputHandler.instance.stateMachine.transitioned.connect(HandlePlayerStateChanged)
+	#yeah like what is this garbage lol
+	
+	#PlayerInputHandler.instance.stateMachine.transitioned.connect(HandlePlayerStateChanged)
 
 func enter(_msg := {}) -> void:
 	super.enter()
@@ -24,7 +26,8 @@ func enter(_msg := {}) -> void:
 	actionRadial.SetActions(player)
 
 	comboDisplay.ClearComboView()
-
+	
+	ShowRootDisplay()
 
 
 
