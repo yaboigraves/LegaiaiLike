@@ -98,20 +98,15 @@ func GetEntityAtIndex(index) -> Entity:
 	
 
 func GetEntities() -> Array[Entity]:
-	var entities : Array[Entity]
-	
-	for child in get_children():
-		entities.append(child as Entity)
-	
-	return entities
+	return active_entities
 
 
 func GetAliveEntities():
-	var entities : Array[Entity]
-	for child in get_children():
+	var alive_entities : Array[Entity]
+	for child in active_entities:
 		if child.isAlive:
-			entities.append(child)
-	return entities
+			alive_entities.append(child)
+	return alive_entities
 
 
 func HandleEntityDied(entity:Entity):

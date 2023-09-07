@@ -14,6 +14,7 @@ func SetTarget(entity:Entity):
 	#TODO: refactor entities to actually have their assets
 	#makes 0 sense to use UI nodes for those in the future
 	#that seems important so lets do that next
+	$SelectionArrow.position = entity.global_position
 	$SelectionArrow.visible = true
 func ClearTarget():
 	$SelectionArrow.visible = false
