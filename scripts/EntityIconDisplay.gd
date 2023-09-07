@@ -6,7 +6,7 @@ var currentEntity : Entity
 #so when that entity gets targeted lets activate its arrow thing 
 
 func LoadEntity(entity:Entity):
-	texture = entity.entityData.icon
+	texture = entity.entity_data.icon
 	entity.Targeted.connect(HandleTargetted)
 	entity.TurnStarted.connect(HandleTargetted)
 	entity.TurnDone.connect(HandleUntargetted)

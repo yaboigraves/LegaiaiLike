@@ -24,7 +24,7 @@ func RefreshTurnOrder(turnOrder: Array[Entity], turnIndex: int):
 		else:
 			iconInstance.modulate = Color.SKY_BLUE
 			
-		iconInstance.texture = turnOrder[i].entityData.icon
+		iconInstance.texture = turnOrder[i].entity_data.icon
 		$HBoxContainer.add_child(iconInstance)
 		
 		

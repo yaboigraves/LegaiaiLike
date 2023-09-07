@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=33 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
 [ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
@@ -11,12 +11,8 @@
 [ext_resource type="Script" path="res://scripts/PlayerTurnUIState.gd" id="9_ne3fc"]
 [ext_resource type="Script" path="res://scripts/ProcessingPlayerTurnUIState.gd" id="10_odxj3"]
 [ext_resource type="Script" path="res://scripts/EnemyTurnUIState.gd" id="11_lc5xg"]
-[ext_resource type="Resource" uid="uid://cdqtpiloj1cgu" path="res://entityData/testGuy4.tres" id="12_1k7p1"]
 [ext_resource type="Script" path="res://scripts/PartyDisplay.gd" id="12_wdpyt"]
-[ext_resource type="Resource" uid="uid://c6vpes2cepqjr" path="res://entityData/testGuy5.tres" id="13_qf7tk"]
-[ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://textures/testIcon1.png" id="14_2cfoi"]
 [ext_resource type="Script" path="res://scripts/ComboDisplay.gd" id="14_8hl74"]
-[ext_resource type="Resource" uid="uid://dos4vj7bl2n4p" path="res://entityData/testGuy6.tres" id="14_w3kva"]
 [ext_resource type="PackedScene" uid="uid://celmkcso8kpdd" path="res://scenes/entity_display.tscn" id="15_r76id"]
 [ext_resource type="Script" path="res://scripts/ActionRadial.gd" id="16_cg3nu"]
 [ext_resource type="PackedScene" uid="uid://cqsymm8sn1ubb" path="res://scenes/action_view.tscn" id="16_yq0pa"]
@@ -27,14 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://j6dl1aq3l1j4" path="res://textures/arrows/arrowDown.png" id="22_jhvls"]
 [ext_resource type="Texture2D" uid="uid://bua87n0iugquw" path="res://textures/arrows/arrowLeft.png" id="23_l6d36"]
 [ext_resource type="Script" path="res://scripts/EntitysDisplay.gd" id="24_vam5r"]
-[ext_resource type="Script" path="res://scripts/EntityIconDisplay.gd" id="26_jl3mh"]
 [ext_resource type="Script" path="res://scripts/Team.gd" id="27_f3ih3"]
 [ext_resource type="PackedScene" uid="uid://b4ws34qh8i5oo" path="res://scenes/entity_icon.tscn" id="27_rpp4b"]
-[ext_resource type="Script" path="res://scripts/PlayerControlledEntity.gd" id="28_vkugu"]
+[ext_resource type="PackedScene" uid="uid://ps452jw6clfk" path="res://scenes/entities/entity.tscn" id="28_1ij3i"]
 [ext_resource type="Resource" uid="uid://d06vgcl4yx24g" path="res://entityData/playerTest1.tres" id="29_48y18"]
-[ext_resource type="Resource" uid="uid://jngymbsqee81" path="res://entityData/playerTest2.tres" id="30_46fxk"]
-[ext_resource type="Resource" uid="uid://c66715vfv7mg8" path="res://entityData/playerTest3.tres" id="31_hfwxg"]
-[ext_resource type="Script" path="res://scripts/AIControlledEntity.gd" id="36_rfd5f"]
 [ext_resource type="Script" path="res://scripts/TurnOrderManager.gd" id="36_tnia6"]
 [ext_resource type="Script" path="res://scripts/BattleBlackboard.gd" id="37_ca1w2"]
 [ext_resource type="Script" path="res://scripts/State.gd" id="38_raeju"]
@@ -383,230 +375,41 @@ bbcode_enabled = true
 text = "[center] Swap Party"
 fit_content = true
 
-[node name="EntitysDisplay" type="Control" parent="BattleManager/UI" node_paths=PackedStringArray("team")]
-layout_mode = 1
-anchor_top = 0.19
-anchor_bottom = 0.19
-offset_top = -0.12001
-offset_right = 282.0
-offset_bottom = 337.88
-script = ExtResource("24_vam5r")
-team = NodePath("../../Team1")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/EntitysDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 25
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("14_2cfoi")
-expand_mode = 5
-script = ExtResource("26_jl3mh")
-
-[node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer/TextureRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 59.0
-offset_top = -41.0
-offset_right = 123.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_l6d36")
-
-[node name="TextureRect2" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("14_2cfoi")
-expand_mode = 5
-script = ExtResource("26_jl3mh")
-
-[node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer/TextureRect2"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 59.0
-offset_top = -41.0
-offset_right = 123.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_l6d36")
-
-[node name="TextureRect3" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("14_2cfoi")
-expand_mode = 5
-script = ExtResource("26_jl3mh")
-
-[node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay/VBoxContainer/TextureRect3"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 59.0
-offset_top = -41.0
-offset_right = 123.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_l6d36")
-
-[node name="EntitysDisplay2" type="Control" parent="BattleManager/UI" node_paths=PackedStringArray("team")]
-layout_mode = 1
-anchor_left = 1.0
-anchor_top = 0.19
-anchor_right = 1.0
-anchor_bottom = 0.19
-offset_left = -280.0
-offset_top = -0.12001
-offset_right = 2.0
-offset_bottom = 337.88
-script = ExtResource("24_vam5r")
-team = NodePath("../../Team2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/EntitysDisplay2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 25
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("14_2cfoi")
-expand_mode = 5
-script = ExtResource("26_jl3mh")
-
-[node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer/TextureRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -41.0
-offset_right = -52.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("21_4ypd4")
-
-[node name="TextureRect2" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("14_2cfoi")
-expand_mode = 5
-script = ExtResource("26_jl3mh")
-
-[node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer/TextureRect2"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -41.0
-offset_right = -52.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("21_4ypd4")
-
-[node name="TextureRect3" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("14_2cfoi")
-expand_mode = 5
-script = ExtResource("26_jl3mh")
-
-[node name="SelectionArrow" type="TextureRect" parent="BattleManager/UI/EntitysDisplay2/VBoxContainer/TextureRect3"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -41.0
-offset_right = -52.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("21_4ypd4")
-
 [node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("27_f3ih3")
+entities_data = Array[Resource("res://scripts/EntityData.gd")]([ExtResource("29_48y18")])
+entity_packed_scene = ExtResource("28_1ij3i")
 enemyTeam = NodePath("../Team2")
 
-[node name="Player1Slot" type="Node" parent="BattleManager/Team1"]
-script = ExtResource("28_vkugu")
-entityData = ExtResource("29_48y18")
+[node name="EntitysDisplay" type="Node2D" parent="BattleManager/Team1"]
+script = ExtResource("24_vam5r")
 
-[node name="Player2Slot" type="Node" parent="BattleManager/Team1"]
-script = ExtResource("28_vkugu")
-entityData = ExtResource("30_46fxk")
+[node name="EntityPivot1" type="Node2D" parent="BattleManager/Team1/EntitysDisplay"]
+position = Vector2(268, 263)
 
-[node name="Player3Slot" type="Node" parent="BattleManager/Team1"]
-script = ExtResource("28_vkugu")
-entityData = ExtResource("31_hfwxg")
+[node name="EntityPivot2" type="Node2D" parent="BattleManager/Team1/EntitysDisplay"]
+position = Vector2(277, 518)
+
+[node name="EntityPivot3" type="Node2D" parent="BattleManager/Team1/EntitysDisplay"]
+position = Vector2(286, 722)
 
 [node name="Team2" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("27_f3ih3")
+entities_data = Array[Resource("res://scripts/EntityData.gd")]([ExtResource("29_48y18")])
+entity_packed_scene = ExtResource("28_1ij3i")
 enemyTeam = NodePath("../Team1")
 
-[node name="Enemy1Slot" type="Node" parent="BattleManager/Team2"]
-script = ExtResource("36_rfd5f")
-entityData = ExtResource("12_1k7p1")
+[node name="EntitysDisplay" type="Node2D" parent="BattleManager/Team2"]
+script = ExtResource("24_vam5r")
 
-[node name="Enemy2Slot" type="Node" parent="BattleManager/Team2"]
-script = ExtResource("36_rfd5f")
-entityData = ExtResource("13_qf7tk")
+[node name="EntityPivot1" type="Node2D" parent="BattleManager/Team2/EntitysDisplay"]
+position = Vector2(1661, 263)
 
-[node name="Enemy3Slot" type="Node" parent="BattleManager/Team2"]
-script = ExtResource("36_rfd5f")
-entityData = ExtResource("14_w3kva")
+[node name="EntityPivot2" type="Node2D" parent="BattleManager/Team2/EntitysDisplay"]
+position = Vector2(1670, 518)
+
+[node name="EntityPivot3" type="Node2D" parent="BattleManager/Team2/EntitysDisplay"]
+position = Vector2(1679, 722)
 
 [node name="TurnOrderManager" type="Node" parent="BattleManager"]
 script = ExtResource("36_tnia6")

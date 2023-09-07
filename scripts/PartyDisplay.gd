@@ -5,7 +5,8 @@ extends Control
 @export var entityDisplayPackedScene : PackedScene
 
 func _ready() -> void:
-	RefreshPartyDisplay()
+	pass
+	#RefreshPartyDisplay()
 	
 	
 

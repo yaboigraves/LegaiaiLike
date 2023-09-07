@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b47v2yyk6gctv"]
+
+[ext_resource type="Script" path="res://scripts/AIControlledEntity.gd" id="1_2dp6f"]
+
+[node name="Enemy1Slot" type="Node"]
+script = ExtResource("1_2dp6f")
