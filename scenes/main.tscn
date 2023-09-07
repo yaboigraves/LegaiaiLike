@@ -544,9 +544,6 @@ layout_mode = 2
 [node name="LeftAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
 
-[node name="ProcessingPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
-script = ExtResource("38_raeju")
-
 [node name="Idle" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
 script = ExtResource("7_kyyeo")
 
