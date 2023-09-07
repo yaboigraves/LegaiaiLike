@@ -28,10 +28,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var input = PlayerInput.new(
-		int(Input.get_axis("left","right")),
-		int(Input.get_axis("down","up")),
+		(Input.get_axis("down","up")),
+		(Input.get_axis("left","right")),
 		Input.is_action_just_pressed("confirm"),
-		Input.is_action_just_pressed("cancel")
+		Input.is_action_just_pressed("cancel"),
+		Input.is_action_just_pressed("up"),
+		Input.is_action_just_pressed("down"),
+		Input.is_action_just_pressed("left"),
+		Input.is_action_just_pressed("right"),
 	)
 	
 	GotPlayerInput.emit(input)

@@ -20,11 +20,44 @@ extends PlayerInputState
 func enter(_msg ={}):
 	super.enter(_msg)
 	
+	$ActionRadial.SetActions(current_entity)
+	$ActionRadial.visible = true
+	$ComboDisplay.visible = true
+
+func HandleInput(input:PlayerInput):
+	if input.confirm:
+		#so how do we handle this
+		#its more like we tell this to the messenger
+		#this is more like the turn combo being entered
+		#targets havent been picked yet
+		#this is kinda tricky
+		#targets
+		#shiiiet
+		#i think it makes more sense to to party health
+		#or a tug of war actually
+		#honestly a tug of war with multipliers for damage sounds kinda dope
+		#I think adding gear that you make the combos off
+		#actually makes this kind of more interesting
+		#because different gear can have different combos equipped
+		#and it can let you play a different role for a moment
+		#almost like a persona...
+		#so you actually start with gear selection
+		#and gear has moves equipped onto it
+		#yeah I like that
+		#lets roll with it for now
+		
+		#
+		
+		
+		current_entity.TurnReady.emit(current_entity)
+	
 
 #this code is terrible re-write later
 func update(_delta: float):
 
 	pass
+
+
 
 #	if Input.is_action_just_pressed("confirm") and currentEntity.actionBuffer.IsValidCombo():
 #		#currentEntity.TurnReady.emit(currentEntity)
@@ -52,3 +85,9 @@ func update(_delta: float):
 #		if currentEntity.actionBuffer.TryAddAction(currentEntity.rightAction):
 #			currentEntity.ActionBufferUpdated.emit(currentEntity.actionBuffer)
 #
+
+
+func exit():
+	super.exit()
+	$ActionRadial.visible = true
+	$ComboDisplay.visible = true

@@ -17,6 +17,11 @@ var state_machine : StateMachine = null:
 func initialize():
 	pass
 
+
+func HandleInput(input:PlayerInput):
+	pass
+	
+	
 # Virtual function. Receives events from the `_unhandled_input()` callback.
 func handle_input(_event: InputEvent) -> void:
 	pass

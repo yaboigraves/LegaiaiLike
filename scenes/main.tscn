@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=41 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
 [ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
@@ -39,6 +39,7 @@
 [ext_resource type="Script" path="res://scripts/BattleBlackboard.gd" id="37_ca1w2"]
 [ext_resource type="Script" path="res://scripts/State.gd" id="38_raeju"]
 [ext_resource type="Script" path="res://scripts/PlayerTurnState.gd" id="39_trvr1"]
+[ext_resource type="Script" path="res://scripts/TargettingView.gd" id="40_nt06g"]
 
 [node name="Main" type="Node"]
 metadata/_edit_vertical_guides_ = []
@@ -59,9 +60,8 @@ script = ExtResource("4_v2ind")
 [node name="ComboPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
 script = ExtResource("5_jw4pe")
 
-[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine" node_paths=PackedStringArray("targetTeam")]
+[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
 script = ExtResource("6_rtwuj")
-targetTeam = NodePath("../../../Team2")
 
 [node name="Idle" type="Node" parent="BattleManager/PlayerInputHandler/StateMachine"]
 script = ExtResource("7_kyyeo")
@@ -162,6 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EnemyDisplay" type="Control" parent="BattleManager/UI" node_paths=PackedStringArray("team")]
+visible = false
 layout_mode = 1
 anchor_left = 0.75
 anchor_top = 0.75
@@ -630,7 +631,163 @@ autostart = false
 [node name="RootPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
 script = ExtResource("4_v2ind")
 
-[node name="ActionRadial" type="Control" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState"]
+[node name="PlayerTurnRootDisplay" type="Control" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState"]
+visible = false
+layout_mode = 3
+anchor_left = 0.357
+anchor_top = 0.225
+anchor_right = 0.643
+anchor_bottom = 0.775
+offset_left = -0.264027
+offset_top = -0.300006
+offset_right = 0.263992
+offset_bottom = 0.299977
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.415686, 0.607843, 0.564706)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("20_jc2o7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Attack"
+fit_content = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("21_4ypd4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Item"
+fit_content = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("22_jhvls")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Spell"
+fit_content = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("23_l6d36")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center] Swap Party"
+fit_content = true
+
+[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
+script = ExtResource("6_rtwuj")
+
+[node name="TargettingView" type="Control" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/TargettingPlayerInputState"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("40_nt06g")
+
+[node name="SelectionArrow" type="TextureRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/TargettingPlayerInputState/TargettingView"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 59.0
+offset_top = -41.0
+offset_right = 123.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_l6d36")
+
+[node name="ComboPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
+script = ExtResource("5_jw4pe")
+
+[node name="ComboDisplay" type="Control" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState"]
+visible = false
+layout_mode = 3
+anchor_left = 0.25
+anchor_top = 0.85
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_left = 0.544
+offset_top = -0.280029
+offset_right = -0.264038
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_8hl74")
+actionViewScene = ExtResource("16_yq0pa")
+
+[node name="ColorRect" type="ColorRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ComboDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.195
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.447059, 0.447059, 0.447059, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ComboDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionRadial" type="Control" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState"]
 visible = false
 layout_mode = 3
 anchor_left = 0.349
@@ -645,7 +802,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_cg3nu")
 
-[node name="ColorRect" type="ColorRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/ActionRadial"]
+[node name="ColorRect" type="ColorRect" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -654,7 +811,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0862745, 0.294118, 0.294118, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/ActionRadial"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -663,24 +820,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="UpAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
+[node name="UpAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
 
-[node name="RightAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
+[node name="RightAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
 
-[node name="DownAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
+[node name="DownAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
 
-[node name="LeftAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/RootPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
+[node name="LeftAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
-
-[node name="ComboPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
-script = ExtResource("5_jw4pe")
-
-[node name="TargettingPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine" node_paths=PackedStringArray("targetTeam")]
-script = ExtResource("6_rtwuj")
-targetTeam = NodePath("../../../../Team2")
 
 [node name="Idle" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
 script = ExtResource("7_kyyeo")

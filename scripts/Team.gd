@@ -12,6 +12,10 @@ signal EntitiesUpdated
 #and that will use the caster to find the enemy team
 #rather than caching  it
 
+
+#TODO: spawn in our entities!
+
+
 @export var enemyTeam: Team
 
 func _ready() -> void:

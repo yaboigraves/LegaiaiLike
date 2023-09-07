@@ -3,20 +3,43 @@ extends PlayerInputState
 
 
 var selectionIndex = 0
-@export var targetTeam : Team
 
 var targets : Array[Entity]
 
 func enter(args = {}):
 	super.enter(args)
-	
 	print("ok now we do targetting!!")
-	targets = targetTeam.GetAliveEntities()
 	
+	#if current_entity.gear == blah type
+	#assume targetting mode is single for now
+	
+	SetupSingleTargetting()
+
+
+func SetupSingleTargetting():
+	#so look at the current entity, find the team they're not on
+	#blackboard ask for an enemy team by an entity
+	targets = BattleBlackboard.Instance.GetEnemyTeamMembersByEntity(current_entity)
 	selectionIndex = 0 
-	UpdateSelection()
+	$TargettingView.SetTarget(targets[selectionIndex])
 
-
+func HandleInput(input:PlayerInput):
+	
+	
+	#tell the current entity it's targetted?
+	#or move a ui element around
+	#probably more like move a UI element around
+	#we can assume entities have positions
+	
+	
+	if input.up:
+		selectionIndex = clampi(selectionIndex -1, 0, targets.size() -1)
+		print("target is ", targets[selectionIndex].name)
+		$TargettingView.SetTarget(targets[selectionIndex])
+	elif input.down:
+		selectionIndex = clampi(selectionIndex +1, 0, targets.size() -1)
+		print("target is ", targets[selectionIndex].name)
+		$TargettingView.SetTarget(targets[selectionIndex])
 
 func update(delta):
 	super.update(delta)
