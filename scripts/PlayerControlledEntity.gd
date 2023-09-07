@@ -29,23 +29,41 @@ func SetEntityData(entity_data:EntityData):
 	
 	if entity_data.upAction:
 		upAction = entity_data.upAction.instantiate()
-	
+		add_child(upAction)
 	if entity_data.leftAction:
-		leftAction = entity_data.leftAction
-	
+		leftAction = entity_data.leftAction.instantiate()
+		add_child(leftAction)
 	if entity_data.downAction:
-		downAction = entity_data.downAction
-	
+		downAction = entity_data.downAction.instantiate()
+		add_child(downAction)
 	if entity_data.rightAction:
-		rightAction = entity_data.rightAction
-	
+		rightAction = entity_data.rightAction.instantiate()
+		add_child(rightAction)
 
 
-func DoTurn():
-	super.DoTurn()
+func CreateNewTurn():
+	super.CreateNewTurn()
 	actionBuffer = ActionBuffer.new(ap)
+
+func SetTurnTargets(targets: Array[Entity]):
+	actionBuffer.SetTargets(targets)
 	
 	
+func TryAddDirectionToCombo(direction : Symbols.Direction) -> bool:
+	
+	match(direction):
+		Symbols.Direction.UP:
+			return actionBuffer.TryAddAction(upAction)
+		Symbols.Direction.DOWN:
+			return actionBuffer.TryAddAction(downAction)
+		Symbols.Direction.LEFT:
+			return actionBuffer.TryAddAction(leftAction)
+		Symbols.Direction.RIGHT:
+			return actionBuffer.TryAddAction(rightAction)
+		
+	
+	return false
+
 	
 	#TODO: also make this part of a messenger
 	#PlayerInputHandler.instance.StartPlayerControlledEntityTurn(self)

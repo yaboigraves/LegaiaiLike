@@ -1,12 +1,18 @@
-[gd_resource type="Resource" script_class="PlayerControlledEntityData" load_steps=4 format=3 uid="uid://d06vgcl4yx24g"]
+[gd_resource type="Resource" script_class="PlayerControlledEntityData" load_steps=7 format=3 uid="uid://d06vgcl4yx24g"]
 
 [ext_resource type="Script" path="res://scripts/PlayerControlledEntityData.gd" id="1_bcmc0"]
+[ext_resource type="PackedScene" uid="uid://byf8nwbvjqivh" path="res://scenes/TestAction2.tscn" id="1_utxma"]
 [ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://textures/testIcon1.png" id="2_1j0jg"]
 [ext_resource type="PackedScene" uid="uid://ds40yf4r5xt0g" path="res://scenes/TestAction.tscn" id="3_07odw"]
+[ext_resource type="PackedScene" uid="uid://d35ksbtijtk1h" path="res://scenes/TestAction3.tscn" id="3_qtf55"]
+[ext_resource type="PackedScene" uid="uid://gbvl2m7cus1g" path="res://scenes/TestAction4.tscn" id="4_rcxq5"]
 
 [resource]
 script = ExtResource("1_bcmc0")
 upAction = ExtResource("3_07odw")
+downAction = ExtResource("1_utxma")
+leftAction = ExtResource("3_qtf55")
+rightAction = ExtResource("4_rcxq5")
 icon = ExtResource("2_1j0jg")
 maxHealth = 10
 ap = 4

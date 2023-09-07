@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://byf8nwbvjqivh"]
+
+[ext_resource type="Script" path="res://scripts/Action.gd" id="1_c77dp"]
+[ext_resource type="Script" path="res://scripts/Effect.gd" id="2_6atfy"]
+
+[node name="TestAction2" type="Node"]
+script = ExtResource("1_c77dp")
+actionCost = 2
+
+[node name="TestEffect" type="Node" parent="."]
+script = ExtResource("2_6atfy")

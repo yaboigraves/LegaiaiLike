@@ -1,19 +1,14 @@
 class_name ComboPlayerInputState
 extends PlayerInputState
 
-#really we just want to control what happens from here...
-#I think we ought to just pass a struct for input in
-#so when we enter into the combo player state we pass an entity to pipe input to
-#that makes sense
-
-#so here we would want to issue UI events as well keep in mind
-#but it should be easier to do that later
-#so this actually ought to absorb some gameplay related code tbh
-#I think we do want to technically call entity code here
-
-#so yeah this ought to steer entities and be more part of phase i guess
-#we're only ever controlling one entity at a time so
-#seems fine
+#so here we are
+#finally doing combos and action points again
+#SO
+#this is the big shebang in terms of how the architecture ought to work
+#after this is implemented in a basic form we ought to go make sure turn order works
+#also figure out how enemy class structure looks, is there any difference?
+#is there really a need for a difference? I dont fully think so
+#so we can first just handle input
 
 
 
@@ -25,38 +20,40 @@ func enter(_msg ={}):
 	$ComboDisplay.visible = true
 
 func HandleInput(input:PlayerInput):
-	if input.confirm:
-		#so how do we handle this
-		#its more like we tell this to the messenger
-		#this is more like the turn combo being entered
-		#targets havent been picked yet
-		#this is kinda tricky
-		#targets
-		#shiiiet
-		#i think it makes more sense to to party health
-		#or a tug of war actually
-		#honestly a tug of war with multipliers for damage sounds kinda dope
-		#I think adding gear that you make the combos off
-		#actually makes this kind of more interesting
-		#because different gear can have different combos equipped
-		#and it can let you play a different role for a moment
-		#almost like a persona...
-		#so you actually start with gear selection
-		#and gear has moves equipped onto it
-		#yeah I like that
-		#lets roll with it for now
+	if input.cancel:
+		#TODO: add code to remove elements from action buffer
 		
-		#
+		pass
+	elif input.confirm:
+		#TODO: go into the animations n shit for the players move
+		
+		pass
 		
 		
-		current_entity.TurnReady.emit(current_entity)
+	#current_entity.TurnReady.emit(current_entity)
+	#so we want to try and do that direction
+	#so lets jsut pass a try thing to the player
+	#so if it fails we can respond on the UI
 	
-
+	if input.up:
+		if current_entity.TryAddDirectionToCombo(Symbols.Direction.UP):
+			print("up worked, now update UI")
+			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+	if input.down:
+		if current_entity.TryAddDirectionToCombo(Symbols.Direction.DOWN):
+			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+	if input.left:
+		if current_entity.TryAddDirectionToCombo(Symbols.Direction.LEFT):
+			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+	if input.right:
+		if current_entity.TryAddDirectionToCombo(Symbols.Direction.RIGHT):
+			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+		
+		
 #this code is terrible re-write later
 func update(_delta: float):
-
 	pass
-
+	
 
 
 #	if Input.is_action_just_pressed("confirm") and currentEntity.actionBuffer.IsValidCombo():

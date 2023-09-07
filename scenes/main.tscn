@@ -72,9 +72,8 @@ script = ExtResource("8_2ivsi")
 script = ExtResource("3_fnwla")
 autostart = false
 
-[node name="PlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("playerTurnRootDisplay", "actionRadial", "comboDisplay")]
+[node name="PlayerTurn" type="Node" parent="BattleManager/UI/StateMachine" node_paths=PackedStringArray("actionRadial", "comboDisplay")]
 script = ExtResource("9_ne3fc")
-playerTurnRootDisplay = NodePath("../../PlayerTurnRootDisplay")
 actionRadial = NodePath("../../ActionRadial")
 comboDisplay = NodePath("../../ComboDisplay")
 
@@ -284,97 +283,6 @@ anchor_bottom = 0.471
 offset_bottom = -0.0349998
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PlayerTurnRootDisplay" type="Control" parent="BattleManager/UI"]
-visible = false
-layout_mode = 1
-anchor_left = 0.357
-anchor_top = 0.225
-anchor_right = 0.643
-anchor_bottom = 0.775
-offset_left = -0.264027
-offset_top = -0.300006
-offset_right = 0.263992
-offset_bottom = 0.299977
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="BattleManager/UI/PlayerTurnRootDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.141176, 0.415686, 0.607843, 0.564706)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("20_jc2o7")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-bbcode_enabled = true
-text = "[center] Attack"
-fit_content = true
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("21_4ypd4")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-bbcode_enabled = true
-text = "[center] Item"
-fit_content = true
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("22_jhvls")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-bbcode_enabled = true
-text = "[center] Spell"
-fit_content = true
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-texture = ExtResource("23_l6d36")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="BattleManager/UI/PlayerTurnRootDisplay/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-bbcode_enabled = true
-text = "[center] Swap Party"
-fit_content = true
 
 [node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
 script = ExtResource("27_f3ih3")
@@ -635,6 +543,9 @@ layout_mode = 2
 
 [node name="LeftAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
+
+[node name="ProcessingPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
+script = ExtResource("38_raeju")
 
 [node name="Idle" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
 script = ExtResource("7_kyyeo")

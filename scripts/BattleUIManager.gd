@@ -18,10 +18,11 @@ func _init():
 	instance = self
 
 func _ready() -> void:
-	Messenger.TurnOrderUpdated.connect(DrawTurnOrder)
-	Messenger.EntityTurnStarted.connect(BindEntityToUI)
-	
-	
+	pass
+#	Messenger.TurnOrderUpdated.connect(DrawTurnOrder)
+#	Messenger.EntityTurnStarted.connect(BindEntityToUI)
+#
+#
 func BindEntityToUI(entity: Entity):
 	if entity is PlayerControlledEntity:
 		$StateMachine.transition_to("PlayerTurn",{"player" : entity as PlayerControlledEntity})

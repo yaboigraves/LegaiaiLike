@@ -46,16 +46,6 @@ func SetEntityData(entity_data:EntityData):
 	self.entity_data = entity_data
 	
 
-func DoTurn():
-	
-	#so battle manager is actually going to listen for this
-	#an entites turn starting means we move the state machine into a players turn
-	#or maybe actually the entity just gets told its turn starts
-	#that kinda makes more sense
-	#so the turn order scheduler actually tells the battle manager hey its this things turn
-	
+func CreateNewTurn():
 	Messenger.EntityTurnStarted.emit(self)
 	
-	#not necessary because we should be listening to messenger
-	#BattleUIManager.instanceB.BindEntityToUI(self)	
-	pass

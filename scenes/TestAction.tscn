@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Action.gd" id="1_bqwgq"]
 [ext_resource type="Script" path="res://scripts/Effect.gd" id="2_n0nqk"]
 
-[node name="TestAction" type="Node"]
+[node name="TestAction1" type="Node"]
 script = ExtResource("1_bqwgq")
 actionCost = 2
 

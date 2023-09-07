@@ -6,16 +6,5 @@ extends Entity
 @export var actions: Array[PackedScene]
 var selectedAction : Action
 
-func DoTurn():
 
-	
-	#figure out action and target
-	#...
-	#selectedAction = actions[0]
-	#pass off the processed stuff to the ui with a signal
-	super.DoTurn()
-
-
-	print("enemy doing action ", actions[0])
-	TurnReady.emit(self)
 

@@ -31,7 +31,20 @@ func HandleInput(input:PlayerInput):
 	#probably more like move a UI element around
 	#we can assume entities have positions
 	
+	if input.cancel:
+		state_machine.transition_to("RootPlayerInputState")
+		return
 	
+	if input.confirm:
+		#set the current target for this ability
+		#we can probably add this to the entity?
+		#say entity this is the target of your next ability
+		
+		#i think thats fine for now
+		current_entity.SetTurnTargets(targets.duplicate())
+		
+		state_machine.transition_to("ComboPlayerInputState")
+		
 	if input.up:
 		selectionIndex = clampi(selectionIndex -1, 0, targets.size() -1)
 		print("target is ", targets[selectionIndex].name)
@@ -86,5 +99,6 @@ func UpdateSelection():
 
 func exit():
 	super.exit()
+	$TargettingView.ClearTarget()
 #	if currentEntity.actionBuffer.target != null:
 #		currentEntity.actionBuffer.target.Untargeted.emit()
