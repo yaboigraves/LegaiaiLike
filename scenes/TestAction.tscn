@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds40yf4r5xt0g"]
 
 [ext_resource type="Script" path="res://scripts/Action.gd" id="1_bqwgq"]
-[ext_resource type="Script" path="res://scripts/Effect.gd" id="2_n0nqk"]
+[ext_resource type="Script" path="res://scripts/DamageEffect.gd" id="2_1wetu"]
 
 [node name="TestAction1" type="Node"]
 script = ExtResource("1_bqwgq")
 actionCost = 2
 
-[node name="TestEffect" type="Node" parent="."]
-script = ExtResource("2_n0nqk")
+[node name="DamageEffect" type="Node" parent="."]
+script = ExtResource("2_1wetu")
+damage = 3

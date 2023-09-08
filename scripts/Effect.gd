@@ -1,27 +1,40 @@
 class_name Effect
 extends Node
 
-#so this is a base class that basically creates a way to do literally any effect
-#actions basically just are created by adding multiple effects as children
-#order as children dictates execution order of effects
-#so you can for example, buff a target
+#SO
 
-#i think we ought to have the code run in here too
+#effects are basically containers for code that spawn objects
+#each effect is likely a hand scripted ish value
+#lets start with damage effects
 
-#so effects will get stacked 
-#heal then damage vs damage then heal etc
-#so we should be able to like apply damage etc etc 
+#all actions generate the same kind of compilation of modifier sources
+#a modifiersource is just an object that changes *something* about game state
+#whether it be damage, a heal, a check for a threshold, etc
+#applying a dot
+#effects are kind of like just script based spawners for these
 
-#all effects have possible affinity contributions too
-#there can be multiple affinity effects
-#affinity effects ought to be a class too
+#lets start with a DamageEffect and go from there
 
-#like some blocks might move the affinity around for example
-#so affinity modifiers might actually be nodes too
-#this is actually kinda good ngl
+#so a x2 works by doing what
 
-#nah those being nodes is fugly
+#we construct a queue of things to process
 
-#temp
-@export var affinity_x_modifier : int = 0
-@export var affinity_y_modifier : int = 0
+#first we take the x2 off the stack
+#when we take the next thing (damage effect) we apply the x2 modifier to the damage sources from the effect
+#so each effect returns an effectmodifier base class
+
+
+#used to actually invoke the effect, using a single target
+#the idea is we want to roll against certain target stats
+#I think stuff that targets multiple people will just use the stack of modifiers multiple times
+
+@export var vibe_x_delta: int
+@export var vibe_y_delta : int
+
+func GenerateModifiers(target: Entity):
+	pass
+
+
+
+
+

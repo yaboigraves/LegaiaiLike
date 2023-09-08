@@ -26,8 +26,20 @@ func HandleInput(input:PlayerInput):
 		pass
 	elif input.confirm:
 		#TODO: go into the animations n shit for the players move
+		#its at this point we look at the players combo
+		#and we basically want to compile all the effects togetheter
+		#into some kind of report as to what it will actually do
+		#stuff can do damage, and apply status effects for now
+		#this needs to be very broken up
+		#so damage is inflicted via a damage source
+		#effects can create damage sources to start
+		#damage sources get compiled
 		
-		pass
+		#take the current entity and lets compile up their action
+		#we dont want to actually apply all that, just compile it
+		current_entity.ProcessActionBuffer()
+		
+	
 		
 		
 	#current_entity.TurnReady.emit(current_entity)

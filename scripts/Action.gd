@@ -1,20 +1,22 @@
-
 class_name Action
 extends Node
 
 @export var actionCost : int
 @export var direction : Symbols.Direction
 
-#alright alright
-#so we actually want to execute these individually
-#but we want to compile a total delta in gamestate
-#this is like, using multipliers, checking status effects, etc
-#so we dont actually apply these to gamestate persay
-#really what we want is for the action buffer to process the outcome of these
 
-#to start, lets get 4 unique actions
+#so we compile all the effects into a stack of actual modifiers
 
 
+func CompileEffects(targets: Array[Entity]):
+
+	for target in targets:
+		var modifiers : Array[EffectModifier]
+		for effect in get_children():
+			var effect_modifiers = effect.GenerateModifiers(target)
+			modifiers.append_array(effect_modifiers)
+		return modifiers
+		
 func ApplyToGameState(targets : Array[Entity], caster: Entity):
 #	for target in targets:
 #		target.ApplyActionToSelf(self)

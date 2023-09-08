@@ -44,6 +44,9 @@ func SetEntityData(entity_data:EntityData):
 func CreateNewTurn():
 	super.CreateNewTurn()
 	actionBuffer = ActionBuffer.new(ap)
+	
+func ProcessActionBuffer():
+	actionBuffer.CompileActions()
 
 func SetTurnTargets(targets: Array[Entity]):
 	actionBuffer.SetTargets(targets)
