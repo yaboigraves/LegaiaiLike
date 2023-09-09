@@ -1,7 +1,7 @@
 class_name DamageEffect
 extends Effect
 
-@export var damage : int
+@export var value : int
 @export var damage_type : Symbols.DamageType
 
 #so lets think about how targets work
@@ -13,5 +13,5 @@ extends Effect
 
 
 func GenerateModifiers(target:Entity):
-	var modifier = DamageModifier.new(damage,damage_type,vibe_x_delta,vibe_y_delta)
+	var modifier = DamageModifier.new(value,damage_type,vibe_x_delta,vibe_y_delta)
 	return [modifier]

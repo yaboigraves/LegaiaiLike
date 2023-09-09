@@ -6,35 +6,25 @@ var actionSize : int = 0
 var actions : Array[Action]
 var target : Entity
 var targets: Array[Entity]
-var target_modifier_map = {}
+
+var effect_modifier_queue : Array[EffectModifier]
 
 
 func _init(ap:int = 4):
 	maxActionSize = ap
 
-#iterate over all the actions and build a big ol queue of modifiers
-#then we process the modifiers to see if any will effect one another, add battle state, yada yada
-#the entity will do that part I think
-#this will basically just spit out the modifiers and we're good I think
-#return a dictionary of each target or something
+#just make one of these
+#Ok cool
 
+#so now the entity can use this!
 
-#ok yeah definitly do the targetting from here
-#SO 
-#we construct mutliple stacks each with one target I suppose
-
-#uncompressed version ready to get processed
 func CompileActions():
-	#look at our targets
-	target_modifier_map.clear()
+	effect_modifier_queue.clear()
 	
-	for target in targets:
-		var modifier_stack : Array[EffectModifier]
-		for action in actions:
-			var action_modifiers = action.CompileEffects(target)
-			modifier_stack.append_array(action_modifiers)
-		
-		target_modifier_map[target] = modifier_stack
+	for action in actions:
+		var action_modifiers = action.CompileEffects(target)
+		effect_modifier_queue.append_array(action_modifiers)
+	
 
 func IsValidCombo():
 	if actionSize > 0:

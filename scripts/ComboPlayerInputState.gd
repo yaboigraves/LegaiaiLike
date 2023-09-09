@@ -82,5 +82,5 @@ func update(_delta: float):
 
 func exit():
 	super.exit()
-	$ActionRadial.visible = true
+	$ActionRadial.visible = false
 	$ComboDisplay.visible = true

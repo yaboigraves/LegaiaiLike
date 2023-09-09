@@ -18,5 +18,3 @@ var vibe_y_delta:int
 
 
 
-func ApplyModifier():
-	pass

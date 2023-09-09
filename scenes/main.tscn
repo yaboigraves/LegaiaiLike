@@ -545,10 +545,12 @@ layout_mode = 2
 [node name="LeftAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
 
-[node name="ProcessingComboPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
+[node name="ProcessingComboPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine" node_paths=PackedStringArray("combo_display")]
 script = ExtResource("34_6m6ky")
+combo_display = NodePath("../ComboPlayerInputState/ComboDisplay")
 
 [node name="DebugTimer" type="Timer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ProcessingComboPlayerInputState"]
+one_shot = true
 
 [node name="Idle" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
 script = ExtResource("7_kyyeo")

@@ -49,3 +49,12 @@ func SetEntityData(entity_data:EntityData):
 func CreateNewTurn():
 	Messenger.EntityTurnStarted.emit(self)
 	
+func ApplyDamageModifier(damage_modifier: DamageModifier):
+	self.health -= damage_modifier.value
+	HealthChanged.emit()
+	if health <= 0:
+		isAlive = false
+		Died.emit(self)
+		print(self, " died!")
+	
+	print(self.health)

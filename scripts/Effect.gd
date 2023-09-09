@@ -31,8 +31,8 @@ extends Node
 @export var vibe_x_delta: int
 @export var vibe_y_delta : int
 
-func GenerateModifiers(target: Entity):
-	pass
+func GenerateModifiers(target: Entity) -> Array[EffectModifier]:
+	return []
 
 
 

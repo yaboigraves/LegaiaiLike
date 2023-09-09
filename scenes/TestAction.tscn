@@ -9,4 +9,4 @@ actionCost = 2
 
 [node name="DamageEffect" type="Node" parent="."]
 script = ExtResource("2_1wetu")
-damage = 3
+value = 2
