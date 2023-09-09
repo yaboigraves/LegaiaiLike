@@ -4,11 +4,10 @@ extends EffectModifier
 var value : int = 1
 var damage_type : Symbols.DamageType
 
-func _init(value : int, damage_type : Symbols.DamageType, vibe_x : int, vibe_y : int):
+func _init(value : int, damage_type : Symbols.DamageType, vibe_delta: Vector2i):
 	self.value = value
 	self.damage_type = damage_type
-	self.vibe_x_delta = vibe_x
-	self.vibe_y_delta = vibe_y
+	self.vibe_delta = vibe_delta
 	
 func MultiplyValue(multiplier:int):
 	self.value *= multiplier

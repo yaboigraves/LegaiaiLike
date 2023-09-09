@@ -4,12 +4,10 @@ extends EffectModifier
 var depth : int
 var multiplier: int
 
-func _init(depth: int, multiplier: int, x_delta, y_delta):
+func _init(depth: int, multiplier: int, vibe_delta : Vector2i):
 	self.depth = depth
 	self.multiplier = multiplier
-	self.vibe_x_delta = x_delta
-	self.vibe_y_delta = y_delta
-
+	self.vibe_delta = vibe_delta
 func ApplyModifier(targets: Array[EffectModifier]):
 
 	#TODO: actually try to multiply a value

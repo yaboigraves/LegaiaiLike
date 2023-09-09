@@ -5,5 +5,5 @@ extends Effect
 
 
 func GenerateModifiers(target:Entity) -> Array[EffectModifier]:
-	var modifier = MultiplierModifier.new(depth,multiplier,vibe_x_delta,vibe_y_delta)
+	var modifier = MultiplierModifier.new(depth,multiplier,vibe_delta)
 	return [modifier]

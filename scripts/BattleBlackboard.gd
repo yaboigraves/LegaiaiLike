@@ -8,8 +8,14 @@ static var Instance : BattleBlackboard
 var teams : Array[Team]
 var entities: Array[Entity]
 
+var vibe_position : Vector2i
+
+
+
 func _init() -> void:
 	Instance = self
+	
+	vibe_position = Vector2i.ZERO
 
 func GetAllAliveEntities() -> Array[Entity]:
 	var alive_entities : Array[Entity] = []
@@ -30,3 +36,8 @@ func GetEnemyTeamMembersByEntity(entity:Entity):
 	for team in enemy_teams:
 		enemies.append_array(team.GetEntities())
 	return enemies
+
+
+func ModifyVibe(vibe_delta):
+	vibe_position += vibe_delta
+	

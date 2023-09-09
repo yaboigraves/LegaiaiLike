@@ -27,9 +27,7 @@ extends Node
 #used to actually invoke the effect, using a single target
 #the idea is we want to roll against certain target stats
 #I think stuff that targets multiple people will just use the stack of modifiers multiple times
-
-@export var vibe_x_delta: int
-@export var vibe_y_delta : int
+@export var vibe_delta : Vector2i
 
 func GenerateModifiers(target: Entity) -> Array[EffectModifier]:
 	return []

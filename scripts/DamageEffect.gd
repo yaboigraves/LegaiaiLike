@@ -13,5 +13,5 @@ extends Effect
 
 
 func GenerateModifiers(target:Entity):
-	var modifier = DamageModifier.new(value,damage_type,vibe_x_delta,vibe_y_delta)
+	var modifier = DamageModifier.new(value,damage_type,vibe_delta)
 	return [modifier]
