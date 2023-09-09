@@ -6,6 +6,8 @@ var actionSize : int = 0
 var actions : Array[Action]
 var target : Entity
 var targets: Array[Entity]
+var target_modifier_map = {}
+
 
 func _init(ap:int = 4):
 	maxActionSize = ap
@@ -16,17 +18,23 @@ func _init(ap:int = 4):
 #this will basically just spit out the modifiers and we're good I think
 #return a dictionary of each target or something
 
-func CompileActions():
-	var modifier_stack : Array[EffectModifier]
-	for action in actions:
-		var action_modifiers = action.CompileEffects(targets)
-		modifier_stack.append_array(action_modifiers)
-	
-	#OK so we got something now
-	#break, go for a run get some sun
-	
-	print(modifier_stack)
 
+#ok yeah definitly do the targetting from here
+#SO 
+#we construct mutliple stacks each with one target I suppose
+
+#uncompressed version ready to get processed
+func CompileActions():
+	#look at our targets
+	target_modifier_map.clear()
+	
+	for target in targets:
+		var modifier_stack : Array[EffectModifier]
+		for action in actions:
+			var action_modifiers = action.CompileEffects(target)
+			modifier_stack.append_array(action_modifiers)
+		
+		target_modifier_map[target] = modifier_stack
 
 func IsValidCombo():
 	if actionSize > 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=35 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
 [ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ws34qh8i5oo" path="res://scenes/entity_icon.tscn" id="27_rpp4b"]
 [ext_resource type="PackedScene" uid="uid://ps452jw6clfk" path="res://scenes/entities/entity.tscn" id="28_1ij3i"]
 [ext_resource type="Resource" uid="uid://d06vgcl4yx24g" path="res://entityData/playerTest1.tres" id="29_48y18"]
+[ext_resource type="Script" path="res://scripts/ProcessingComboPlayerInputState.gd" id="34_6m6ky"]
 [ext_resource type="Script" path="res://scripts/TurnOrderManager.gd" id="36_tnia6"]
 [ext_resource type="Script" path="res://scripts/BattleBlackboard.gd" id="37_ca1w2"]
 [ext_resource type="Script" path="res://scripts/State.gd" id="38_raeju"]
@@ -543,6 +544,11 @@ layout_mode = 2
 
 [node name="LeftAction" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ComboPlayerInputState/ActionRadial/VBoxContainer" instance=ExtResource("16_yq0pa")]
 layout_mode = 2
+
+[node name="ProcessingComboPlayerInputState" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
+script = ExtResource("34_6m6ky")
+
+[node name="DebugTimer" type="Timer" parent="BattleManager/StateMachine/PlayerTurn/StateMachine/ProcessingComboPlayerInputState"]
 
 [node name="Idle" type="Node" parent="BattleManager/StateMachine/PlayerTurn/StateMachine"]
 script = ExtResource("7_kyyeo")

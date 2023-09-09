@@ -41,8 +41,8 @@ func HandleInput(input:PlayerInput):
 		#say entity this is the target of your next ability
 		
 		#i think thats fine for now
-		current_entity.SetTurnTargets(targets.duplicate())
-		
+		current_entity.SetTurnTargets([targets[selectionIndex]])
+
 		state_machine.transition_to("ComboPlayerInputState")
 		
 	if input.up:

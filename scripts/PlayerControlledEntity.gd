@@ -47,6 +47,8 @@ func CreateNewTurn():
 	
 func ProcessActionBuffer():
 	actionBuffer.CompileActions()
+	
+
 
 func SetTurnTargets(targets: Array[Entity]):
 	actionBuffer.SetTargets(targets)

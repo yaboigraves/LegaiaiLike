@@ -25,31 +25,15 @@ func HandleInput(input:PlayerInput):
 		
 		pass
 	elif input.confirm:
-		#TODO: go into the animations n shit for the players move
-		#its at this point we look at the players combo
-		#and we basically want to compile all the effects togetheter
-		#into some kind of report as to what it will actually do
-		#stuff can do damage, and apply status effects for now
-		#this needs to be very broken up
-		#so damage is inflicted via a damage source
-		#effects can create damage sources to start
-		#damage sources get compiled
 		
-		#take the current entity and lets compile up their action
-		#we dont want to actually apply all that, just compile it
 		current_entity.ProcessActionBuffer()
 		
-	
-		
-		
-	#current_entity.TurnReady.emit(current_entity)
-	#so we want to try and do that direction
-	#so lets jsut pass a try thing to the player
-	#so if it fails we can respond on the UI
+		#move into the player processing state
+		#this goes through and does the actual reading and processing of the stack
+		state_machine.transition_to("ProcessingComboPlayerInputState")
 	
 	if input.up:
 		if current_entity.TryAddDirectionToCombo(Symbols.Direction.UP):
-			print("up worked, now update UI")
 			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
 	if input.down:
 		if current_entity.TryAddDirectionToCombo(Symbols.Direction.DOWN):
