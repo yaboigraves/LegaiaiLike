@@ -57,3 +57,5 @@ func enter(args={}):
 		
 		await $DebugTimer.timeout
 	
+	print("Turn done!")
+	Messenger.EntityTurnDone.emit(current_entity)

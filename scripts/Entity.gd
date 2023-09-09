@@ -1,6 +1,17 @@
 class_name Entity
 extends Node2D
 
+#so lets remove any of these un-needed signals
+#lets consolidate player and ai controlled entities
+#the state machine is doing the steering anyway
+#think about it this way
+#well we do want the AIControlled entity to exist actually
+#or well
+#hm
+
+#nah its team based ngl
+#cause enemies ought to problem solve like a team
+
 
 
 signal HealthChanged
