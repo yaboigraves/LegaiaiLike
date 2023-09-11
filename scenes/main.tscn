@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dkaek8pvyl2xs"]
+[gd_scene load_steps=38 format=3 uid="uid://dkaek8pvyl2xs"]
 
 [ext_resource type="Script" path="res://scripts/BattleManager.gd" id="1_etl7c"]
 [ext_resource type="Script" path="res://scripts/PlayerInputHandler.gd" id="2_exfso"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://scripts/ComboPlayerInputState.gd" id="5_jw4pe"]
 [ext_resource type="Script" path="res://scripts/TargettingPlayerInputState.gd" id="6_rtwuj"]
 [ext_resource type="Script" path="res://scripts/PlayerInputState.gd" id="7_kyyeo"]
+[ext_resource type="Resource" uid="uid://dst2t0n37gokw" path="res://entityData/test_enemy_1.tres" id="7_x3u2v"]
 [ext_resource type="Script" path="res://scripts/BattleUIManager.gd" id="8_2ivsi"]
+[ext_resource type="PackedScene" uid="uid://bwts3lhl3g7dy" path="res://scenes/entities/enemy_entity.tscn" id="8_6k5j4"]
 [ext_resource type="Script" path="res://scripts/PlayerTurnUIState.gd" id="9_ne3fc"]
 [ext_resource type="Script" path="res://scripts/ProcessingPlayerTurnUIState.gd" id="10_odxj3"]
 [ext_resource type="Script" path="res://scripts/EnemyTurnUIState.gd" id="11_lc5xg"]
@@ -30,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://d06vgcl4yx24g" path="res://entityData/playerTest1.tres" id="29_48y18"]
 [ext_resource type="Script" path="res://scripts/ProcessingComboPlayerInputState.gd" id="34_6m6ky"]
 [ext_resource type="Script" path="res://scripts/TurnOrderManager.gd" id="36_tnia6"]
+[ext_resource type="Script" path="res://scripts/EnemyTurnState.gd" id="37_24s04"]
 [ext_resource type="Script" path="res://scripts/BattleBlackboard.gd" id="37_ca1w2"]
 [ext_resource type="Script" path="res://scripts/State.gd" id="38_raeju"]
 [ext_resource type="Script" path="res://scripts/PlayerTurnState.gd" id="39_trvr1"]
@@ -40,6 +43,40 @@ metadata/_edit_vertical_guides_ = []
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_etl7c")
+
+[node name="PlayerTeam" type="Node" parent="BattleManager"]
+script = ExtResource("27_f3ih3")
+entities_data = Array[Resource("res://scripts/entities/EntityData.gd")]([ExtResource("29_48y18"), ExtResource("26_or1et")])
+entity_packed_scene = ExtResource("28_1ij3i")
+
+[node name="EntitysDisplay" type="Node2D" parent="BattleManager/PlayerTeam"]
+script = ExtResource("24_vam5r")
+
+[node name="EntityPivot1" type="Node2D" parent="BattleManager/PlayerTeam/EntitysDisplay"]
+position = Vector2(268, 263)
+
+[node name="EntityPivot2" type="Node2D" parent="BattleManager/PlayerTeam/EntitysDisplay"]
+position = Vector2(277, 518)
+
+[node name="EntityPivot3" type="Node2D" parent="BattleManager/PlayerTeam/EntitysDisplay"]
+position = Vector2(286, 722)
+
+[node name="EnemyTeam" type="Node" parent="BattleManager"]
+script = ExtResource("27_f3ih3")
+entities_data = Array[Resource("res://scripts/entities/EntityData.gd")]([ExtResource("7_x3u2v"), ExtResource("7_x3u2v")])
+entity_packed_scene = ExtResource("8_6k5j4")
+
+[node name="EntitysDisplay" type="Node2D" parent="BattleManager/EnemyTeam"]
+script = ExtResource("24_vam5r")
+
+[node name="EntityPivot1" type="Node2D" parent="BattleManager/EnemyTeam/EntitysDisplay"]
+position = Vector2(1661, 263)
+
+[node name="EntityPivot2" type="Node2D" parent="BattleManager/EnemyTeam/EntitysDisplay"]
+position = Vector2(1670, 518)
+
+[node name="EntityPivot3" type="Node2D" parent="BattleManager/EnemyTeam/EntitysDisplay"]
+position = Vector2(1679, 722)
 
 [node name="PlayerInputHandler" type="Node" parent="BattleManager"]
 script = ExtResource("2_exfso")
@@ -100,7 +137,7 @@ anchor_right = 0.25
 anchor_bottom = 1.0
 grow_vertical = 0
 script = ExtResource("12_wdpyt")
-team = NodePath("../../Team1")
+team = NodePath("../../PlayerTeam")
 entityDisplayPackedScene = ExtResource("15_r76id")
 
 [node name="ColorRect" type="ColorRect" parent="BattleManager/UI/PartyDisplay"]
@@ -162,7 +199,7 @@ anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("12_wdpyt")
-team = NodePath("../../Team2")
+team = NodePath("../../EnemyTeam")
 entityDisplayPackedScene = ExtResource("15_r76id")
 
 [node name="ColorRect" type="ColorRect" parent="BattleManager/UI/EnemyDisplay"]
@@ -284,42 +321,6 @@ anchor_bottom = 0.471
 offset_bottom = -0.0349998
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Team1" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
-script = ExtResource("27_f3ih3")
-entities_data = Array[Resource("res://scripts/EntityData.gd")]([ExtResource("29_48y18"), ExtResource("26_or1et")])
-entity_packed_scene = ExtResource("28_1ij3i")
-enemyTeam = NodePath("../Team2")
-
-[node name="EntitysDisplay" type="Node2D" parent="BattleManager/Team1"]
-script = ExtResource("24_vam5r")
-
-[node name="EntityPivot1" type="Node2D" parent="BattleManager/Team1/EntitysDisplay"]
-position = Vector2(268, 263)
-
-[node name="EntityPivot2" type="Node2D" parent="BattleManager/Team1/EntitysDisplay"]
-position = Vector2(277, 518)
-
-[node name="EntityPivot3" type="Node2D" parent="BattleManager/Team1/EntitysDisplay"]
-position = Vector2(286, 722)
-
-[node name="Team2" type="Node" parent="BattleManager" node_paths=PackedStringArray("enemyTeam")]
-script = ExtResource("27_f3ih3")
-entities_data = Array[Resource("res://scripts/EntityData.gd")]([ExtResource("29_48y18"), ExtResource("26_or1et")])
-entity_packed_scene = ExtResource("28_1ij3i")
-enemyTeam = NodePath("../Team1")
-
-[node name="EntitysDisplay" type="Node2D" parent="BattleManager/Team2"]
-script = ExtResource("24_vam5r")
-
-[node name="EntityPivot1" type="Node2D" parent="BattleManager/Team2/EntitysDisplay"]
-position = Vector2(1661, 263)
-
-[node name="EntityPivot2" type="Node2D" parent="BattleManager/Team2/EntitysDisplay"]
-position = Vector2(1670, 518)
-
-[node name="EntityPivot3" type="Node2D" parent="BattleManager/Team2/EntitysDisplay"]
-position = Vector2(1679, 722)
 
 [node name="TurnOrderManager" type="Node" parent="BattleManager"]
 script = ExtResource("36_tnia6")
@@ -556,7 +557,7 @@ one_shot = true
 script = ExtResource("7_kyyeo")
 
 [node name="EnemyTurn" type="Node" parent="BattleManager/StateMachine"]
-script = ExtResource("38_raeju")
+script = ExtResource("37_24s04")
 
 [node name="Victory*" type="Node" parent="BattleManager/StateMachine"]
 script = ExtResource("38_raeju")

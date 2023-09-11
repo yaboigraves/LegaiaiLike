@@ -12,48 +12,13 @@ signal TeamMemberDied(team:Team, entity:Entity)
 signal TurnDone(team:Team, entity:Entity)
 signal EntitiesUpdated
 
-#marking enemy team here is kinda weird
-#i dont really like it 
-#I think actions will have some parameters for targetting
-#and that will use the caster to find the enemy team
-#rather than caching  it
-#to start, we want to look at the entity datas we want to spawn
-#we spawn an entity for each of these
-#we also want to track positions for these entities
-#along with sprites
 
 
-#TODO: spawn in our entities!
-#ok lets tackle entity spawning
-#some mobs, might spawn enemies
-#allies might join fights
-
-#so to start we want to spawn in all the entities in the actual slots
-#the slots is an INTERNAL array that we use 
-#we want to keep a max size on these which can be an exported field
-
-
-@export var enemyTeam: Team
 
 func _ready() -> void:
 	BattleBlackboard.Instance.teams.append(self)
-	
 	InstantiateEntities()
 	
-	#break time then pick up here
-	#drink some water go walk do something then tackle the rest of this
-	#remember, visuals are very temp rn
-	#dont stress too much on this
-	
-	
-	
-#	for entity in GetEntities():
-#		entity.TurnReady.connect(HandleEntityTurnReady)
-#		entity.TurnDone.connect(HandleEntityTurnDone)
-#		entity.Died.connect(HandleEntityDied)
-#
-#	EntitiesUpdated.emit()
-
 
 func InstantiateEntities():
 	for i in range(max_entities):
@@ -67,20 +32,6 @@ func InstantiateEntities():
 
 	$EntitysDisplay.LoadTeam(active_entities)
 
-func HandleEntityTurnReady(entity:Entity):
-	if entity is AIControlledEntity:
-		var randomTarget = enemyTeam.GetAliveEntities().pick_random()
-		randomTarget.ApplyActionToSelf(entity.selectedAction)
-	
-	if entity is PlayerControlledEntity:
-		
-		#technically you should be able to target your allies too ngl
-		#lets fix that later
-		var testTarget = entity.actionBuffer.target
-		
-		for action in entity.actionBuffer.actions:
-			#testTarget.ApplyActionToSelf(action)
-			print("Trying to do  thing")
 
 
 func IsLoseConditonMet() -> bool:

@@ -13,16 +13,29 @@ func _ready() -> void:
 
 	
 	turn_order_manager.ConstructTurnOrder()
+	
+	#tell all the enemys to plan their turns
+	#perhaps a team difference is in order idk
+	
+	
+	
 	turn_order_manager.DoNextTurn()
-		
-		
+
+func InitializeEnemyActions():
+	var enemy_entities : Array[AIControlledEntity] = BattleBlackboard.Instance
+	
+	
 
 func _on_turn_order_manager_turn_starting(entity) -> void:
+	
+	var next_state_name = ""
+	
 	if entity is PlayerControlledEntity:
-		$StateMachine.transition_to("PlayerTurn", {"entity": entity})
+		next_state_name = "PlayerTurn"
 	elif entity is AIControlledEntity:
-		pass
-
+		next_state_name = "EnemyTurn"
+		
+	$StateMachine.transition_to(next_state_name, {"entity": entity})
 
 func _on_player_input_handler_got_player_input(input) -> void:
 	$StateMachine.HandleInput(input)

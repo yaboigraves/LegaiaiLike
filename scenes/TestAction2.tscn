@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byf8nwbvjqivh"]
 
 [ext_resource type="Script" path="res://scripts/Action.gd" id="1_c77dp"]
-[ext_resource type="Script" path="res://scripts/MultiplierEffect.gd" id="2_2sjhs"]
+[ext_resource type="Script" path="res://scripts/Effects/MultiplierEffect.gd" id="2_2sjhs"]
 
 [node name="x2BuffAction" type="Node"]
 script = ExtResource("1_c77dp")

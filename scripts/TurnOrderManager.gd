@@ -13,6 +13,8 @@ func ConstructTurnOrder():
 	turn_order = BattleBlackboard.Instance.GetAllAliveEntities()
 	turn_order.sort_custom(SortEntitiesBySpeed)
 	
+	
+	
 func SortEntitiesBySpeed(entity1,entity2):
 	return entity1.speed > entity2.speed
 	

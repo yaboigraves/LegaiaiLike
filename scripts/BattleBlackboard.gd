@@ -5,6 +5,7 @@ extends Node
 
 static var Instance : BattleBlackboard
 
+#so make a discrete variable for this
 var teams : Array[Team]
 var entities: Array[Entity]
 

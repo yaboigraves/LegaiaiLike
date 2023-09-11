@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="EntityData" load_steps=3 format=3 uid="uid://cn04ay78nvegb"]
-
-[ext_resource type="Texture2D" uid="uid://f7c7dv812tay" path="res://textures/testIcon3.png" id="1_m2wxr"]
-[ext_resource type="Script" path="res://scripts/EntityData.gd" id="1_st5ni"]
-
-[resource]
-script = ExtResource("1_st5ni")
-icon = ExtResource("1_m2wxr")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerControlledEntityData" load_steps=7 format=3 uid="uid://d06vgcl4yx24g"]
 
-[ext_resource type="Script" path="res://scripts/PlayerControlledEntityData.gd" id="1_bcmc0"]
+[ext_resource type="Script" path="res://scripts/entities/PlayerControlledEntityData.gd" id="1_bcmc0"]
 [ext_resource type="PackedScene" uid="uid://byf8nwbvjqivh" path="res://scenes/TestAction2.tscn" id="1_utxma"]
 [ext_resource type="Texture2D" uid="uid://c225rmm16i8va" path="res://textures/testIcon1.png" id="2_1j0jg"]
 [ext_resource type="PackedScene" uid="uid://ds40yf4r5xt0g" path="res://scenes/TestAction.tscn" id="3_07odw"]

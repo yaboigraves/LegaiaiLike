@@ -23,7 +23,7 @@ signal Targeted
 signal Untargeted
 
 
-
+var actionBuffer : ActionBuffer
 #these are the current values
 @export var entity_data : EntityData
 var speed = 5
@@ -35,27 +35,20 @@ var isAlive : bool = true
 
 
 func _ready() -> void:
-
 	BattleBlackboard.Instance.entities.append(self)
-	
 	self.maxHealth = entity_data.maxHealth
 	self.health = maxHealth
 	self.ap = entity_data.ap
 	self.speed = entity_data.speed
 
-#REMOVE
-func ApplyActionToSelf(action:Action):
-	health -= action.damage
-	HealthChanged.emit()
-	if health <= 0:
-		isAlive = false
-		Died.emit(self)
-		print(self, " died!")
-
-
 func SetEntityData(entity_data:EntityData):
 	self.entity_data = entity_data
 	
+func ProcessActionBuffer():
+	actionBuffer.CompileActions()
+
+func SetTurnTargets(targets: Array[Entity]):
+	actionBuffer.SetTargets(targets)
 
 func CreateNewTurn():
 	Messenger.EntityTurnStarted.emit(self)

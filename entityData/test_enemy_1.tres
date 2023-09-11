@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AIControlledentityData" load_steps=5 format=3 uid="uid://dst2t0n37gokw"]
+
+[ext_resource type="Script" path="res://scripts/entities/AIControlledEntityData.gd" id="1_2gmss"]
+[ext_resource type="PackedScene" uid="uid://ds40yf4r5xt0g" path="res://scenes/TestAction.tscn" id="1_2xn1s"]
+[ext_resource type="Script" path="res://scripts/entities/EnemyBrain.gd" id="1_hgp30"]
+[ext_resource type="Texture2D" uid="uid://f7c7dv812tay" path="res://textures/testIcon3.png" id="3_wmvu4"]
+
+[resource]
+script = ExtResource("1_2gmss")
+brain = ExtResource("1_hgp30")
+actions = Array[PackedScene]([ExtResource("1_2xn1s")])
+icon = ExtResource("3_wmvu4")
+maxHealth = 10
+ap = 4
+speed = 10

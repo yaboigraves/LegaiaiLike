@@ -1,28 +1,13 @@
 class_name ProcessingComboPlayerInputState
 extends PlayerInputState
 
-
 @export var combo_display : ComboDisplay
 var action_buffer : ActionBuffer 
-
 
 func enter(args={}):
 	super.enter(args)
 	
-	
-	#so yeah what do I want to write here
-	#iterate over the modifiers in the array
-	#do them if we need to
-	#so x2 can modify the next effect
-	#we can pre-process any extra stuff here
-	#leave it here though
-	
-	
-	#get the stack from the current entity
 	action_buffer = current_entity.actionBuffer
-
-
-
 	
 	for i in range(action_buffer.effect_modifier_queue.size()):
 		var effect_mod : EffectModifier = action_buffer.effect_modifier_queue[i] as EffectModifier
@@ -36,7 +21,7 @@ func enter(args={}):
 
 			for target in action_buffer.targets:
 				target.ApplyDamageModifier(effect_mod)
-			
+		
 			
 		elif effect_mod is MultiplierModifier:
 			print("multiplier time")
@@ -51,11 +36,8 @@ func enter(args={}):
 			
 			effect_mod.ApplyModifier(modifiers_to_multiply)
 		
-		
-		
 		$DebugTimer.start()
 		
 		await $DebugTimer.timeout
 	
-	print("Turn done!")
 	Messenger.EntityTurnDone.emit(current_entity)

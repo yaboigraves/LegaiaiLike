@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://gbvl2m7cus1g"]
 
 [ext_resource type="Script" path="res://scripts/Action.gd" id="1_vle4g"]
-[ext_resource type="Script" path="res://scripts/Effect.gd" id="2_1wyog"]
+[ext_resource type="Script" path="res://scripts/Effects/Effect.gd" id="2_1wyog"]
 
 [node name="TestAction4" type="Node"]
 script = ExtResource("1_vle4g")
