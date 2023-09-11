@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqa4pfbr1ui3u"]
+[gd_scene load_steps=7 format=3 uid="uid://dqa4pfbr1ui3u"]
 
 [ext_resource type="Script" path="res://scenes/prototypes/billboard/billboard_test.gd" id="1_e832k"]
-[ext_resource type="Texture2D" uid="uid://cxct5vy3eikym" path="res://textures/icon.svg" id="2_kw3lk"]
-[ext_resource type="Script" path="res://scenes/prototypes/billboard/Billboard3D.gd" id="3_cdpja"]
+[ext_resource type="PackedScene" uid="uid://bq8bg18e6lglt" path="res://scenes/prototypes/billboard/billboard_entity.tscn" id="2_gsgls"]
 
 [sub_resource type="Curve3D" id="Curve3D_maowm"]
 _data = {
@@ -10,6 +9,21 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 11
+
+[sub_resource type="Animation" id="Animation_kl6pr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_my2su"]
 resource_name = "rotate_cam"
@@ -28,37 +42,11 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_kl6pr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow3D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kr04h"]
 _data = {
 "RESET": SubResource("Animation_kl6pr"),
 "rotate_cam": SubResource("Animation_my2su")
 }
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pqd3f"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_kw3lk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
 
 [node name="billboard_test" type="Node3D"]
 script = ExtResource("1_e832k")
@@ -71,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1529, 0)
 curve = SubResource("Curve3D_maowm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.912395, -0.000297683, 0.408964, 1.45497e-11, 0.999854, 0.000727847, -0.408946, 0.000664156, -0.912434, -1.81055, 0.0017705, -2.22765)
+transform = Transform3D(-0.912396, -0.000297683, 0.408962, 1.45497e-11, 0.999854, 0.000727849, -0.408945, 0.000664159, -0.912435, -1.81055, 0.0017705, -2.22765)
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
@@ -84,11 +72,10 @@ libraries = {
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.625774, 0.780005, 0, -0.780005, 0.625774, 0, 1.4784, 0)
+shadow_enabled = true
 
-[node name="Entity" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.118727, 0)
+[node name="BillboardEntity" parent="." instance=ExtResource("2_gsgls")]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Entity"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736671, 0)
-sprite_frames = SubResource("SpriteFrames_pqd3f")
-script = ExtResource("3_cdpja")
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25616)
+visible = false

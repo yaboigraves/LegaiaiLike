@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://di2v1jg0o061c"]
+
+[ext_resource type="PackedScene" uid="uid://bq8bg18e6lglt" path="res://scenes/prototypes/billboard/billboard_entity.tscn" id="1_lpsfe"]
+
+[node name="3d_battle_mockup" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(20, 1, 20)
+
+[node name="PlayerTeam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Position1" type="Node3D" parent="PlayerTeam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="BillboardEntity" parent="PlayerTeam/Position1" instance=ExtResource("1_lpsfe")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.118727, 0)
+
+[node name="Position2" type="Node3D" parent="PlayerTeam"]
+
+[node name="BillboardEntity" parent="PlayerTeam/Position2" instance=ExtResource("1_lpsfe")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.118727, 0)
+
+[node name="Position3" type="Node3D" parent="PlayerTeam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="BillboardEntity" parent="PlayerTeam/Position3" instance=ExtResource("1_lpsfe")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.118727, 0)
+
+[node name="EnemyTeam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Position1" type="Node3D" parent="EnemyTeam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="BillboardEntity" parent="EnemyTeam/Position1" instance=ExtResource("1_lpsfe")]
+
+[node name="Position2" type="Node3D" parent="EnemyTeam"]
+
+[node name="BillboardEntity" parent="EnemyTeam/Position2" instance=ExtResource("1_lpsfe")]
+
+[node name="Position3" type="Node3D" parent="EnemyTeam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="BillboardEntity" parent="EnemyTeam/Position3" instance=ExtResource("1_lpsfe")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.939693, -0.0399296, 0.339681, 0, 0.993162, 0.116746, -0.34202, -0.109706, 0.933267, 1.81419, 2.4291, 4.33649)

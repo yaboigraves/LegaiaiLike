@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq8bg18e6lglt"]
+
+[ext_resource type="Script" path="res://scenes/prototypes/billboard/Billboard3D.gd" id="1_hjf1a"]
+[ext_resource type="Texture2D" uid="uid://ccwvbaxdeyq3i" path="res://scenes/prototypes/billboard/bit_front.png" id="2_o5xoe"]
+[ext_resource type="Texture2D" uid="uid://cp2gnix70ty03" path="res://scenes/prototypes/billboard/bit_side.png" id="3_q0ssd"]
+[ext_resource type="Texture2D" uid="uid://drsowk7044370" path="res://scenes/prototypes/billboard/bit_back.png" id="4_yvd5h"]
+
+[node name="BillboardEntity" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.118727, 0)
+script = ExtResource("1_hjf1a")
+front = ExtResource("2_o5xoe")
+side = ExtResource("3_q0ssd")
+back = ExtResource("4_yvd5h")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+flip_h = true
+pixel_size = 0.0039
+texture = ExtResource("2_o5xoe")
+
+[node name="ShadowCaster" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+layers = 32
+cast_shadow = 3
+pixel_size = 0.0039
+alpha_cut = 1
+texture = ExtResource("2_o5xoe")
