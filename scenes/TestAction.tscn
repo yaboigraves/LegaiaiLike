@@ -11,5 +11,3 @@ actionCost = 2
 script = ExtResource("2_1wetu")
 value = 2
 damage_type = null
-vibe_x_delta = null
-vibe_y_delta = null

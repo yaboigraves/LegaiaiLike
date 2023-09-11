@@ -11,5 +11,3 @@ actionCost = 2
 script = ExtResource("2_2sjhs")
 depth = null
 multiplier = null
-vibe_x_delta = null
-vibe_y_delta = null
