@@ -1,7 +1,7 @@
 class_name TargettingView
 extends Node
 
-func SetTarget(entity:Entity):
+func SetTarget(entity:EntityController):
 	#ahh this is bad
 	#entities ought to have positions for us I think....
 	#this seems to be kind of a weird downside

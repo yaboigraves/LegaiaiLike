@@ -39,7 +39,8 @@ func StartMachine():
 	state.enter()
 
 func HandleInput(input : PlayerInput):
-	state.HandleInput(input)
+	if state:
+		state.HandleInput(input)
 
 # The state machine subscribes to node callbacks and delegates them to the state objects.
 func _unhandled_input(event: InputEvent) -> void:

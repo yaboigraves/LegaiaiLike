@@ -15,9 +15,9 @@ extends Node
 
 
 
-signal EntityTurnStarted(entity: Entity)
-signal EntityTurnDone(entity: Entity)
+signal EntityTurnStarted(entity: EntityController)
+signal EntityTurnDone(entity: EntityController)
 #so lets start making events
 
-signal TurnOrderUpdated(turn_order: Array[Entity], index: int)
+signal TurnOrderUpdated(turn_order: Array[EntityController], index: int)
 

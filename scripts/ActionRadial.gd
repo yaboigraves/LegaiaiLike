@@ -15,15 +15,11 @@ func CacheActionViews():
 	downActionView = $VBoxContainer/DownAction as ActionView
 	rightActionView = $VBoxContainer/RightAction as ActionView
 
-func SetActions(entity : PlayerControlledEntity):
-	if entity.upAction:
-		upActionView.LoadAction(entity.upAction)
-	
-	if entity.leftAction:
-		leftActionView.LoadAction(entity.leftAction)
-	
-	if entity.downAction:
-		downActionView.LoadAction(entity.downAction)
-	
-	if entity.rightAction:
-		rightActionView.LoadAction(entity.rightAction)
+#ah this is where shit gets fucky
+#cause these need to be instantiated
+
+func SetActions(player_controller : PlayerController):
+	upActionView.LoadAction(player_controller.entity.up_action)
+	leftActionView.LoadAction(player_controller.entity.left_action)
+	downActionView.LoadAction(player_controller.entity.down_action)
+	rightActionView.LoadAction(player_controller.entity.right_action)

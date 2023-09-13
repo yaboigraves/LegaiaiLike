@@ -13,13 +13,14 @@ side = ExtResource("3_q0ssd")
 back = ExtResource("4_yvd5h")
 
 [node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886551, 0)
 flip_h = true
 pixel_size = 0.0039
+alpha_cut = 3
 texture = ExtResource("2_o5xoe")
 
 [node name="ShadowCaster" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886551, 0)
 layers = 32
 cast_shadow = 3
 pixel_size = 0.0039

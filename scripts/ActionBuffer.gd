@@ -5,7 +5,7 @@ var maxActionSize : int = 4
 var actionSize : int = 0
 var actions : Array[Action]
 var target : Entity
-var targets: Array[Entity]
+var targets: Array[EntityController]
 
 var effect_modifier_queue : Array[EffectModifier]
 
@@ -45,5 +45,5 @@ func RemoveLastAction():
 		actionSize -= removedAction.actionCost
 		
 
-func SetTargets(targets:Array[Entity]):
+func SetTargets(targets:Array[EntityController]):
 	self.targets = targets

@@ -5,6 +5,6 @@ extends Node2D
 @export var team : Team
 var icons 
 
-func LoadTeam(entities: Array[Entity]):
+func LoadTeam(entities: Array[EntityController]):
 	for i in range(entities.size()):
 		get_child(i).add_child(entities[i])

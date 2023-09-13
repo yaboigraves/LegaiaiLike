@@ -26,7 +26,9 @@ func HandleInput(input:PlayerInput):
 		pass
 	elif input.confirm:
 		
-		current_entity.ProcessActionBuffer()
+		#current_entity.ProcessActionBuffer()
+		
+		current_entity.ConfirmPlayerCombo()
 		
 		#move into the player processing state
 		#this goes through and does the actual reading and processing of the stack
@@ -34,16 +36,16 @@ func HandleInput(input:PlayerInput):
 	
 	if input.up:
 		if current_entity.TryAddDirectionToCombo(Symbols.Direction.UP):
-			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+			$ComboDisplay.RefreshComboView(current_entity.action_buffer)
 	if input.down:
 		if current_entity.TryAddDirectionToCombo(Symbols.Direction.DOWN):
-			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+			$ComboDisplay.RefreshComboView(current_entity.action_buffer)
 	if input.left:
 		if current_entity.TryAddDirectionToCombo(Symbols.Direction.LEFT):
-			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+			$ComboDisplay.RefreshComboView(current_entity.action_buffer)
 	if input.right:
 		if current_entity.TryAddDirectionToCombo(Symbols.Direction.RIGHT):
-			$ComboDisplay.RefreshComboView(current_entity.actionBuffer)
+			$ComboDisplay.RefreshComboView(current_entity.action_buffer)
 		
 		
 #this code is terrible re-write later

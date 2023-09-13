@@ -41,4 +41,7 @@ func _process(delta: float) -> void:
 
 	
 	if do_rotation:
+		
 		$Sprite.look_at(cam.global_position)
+		$Sprite.rotation.x = 0
+		$Sprite.rotation.z = 0

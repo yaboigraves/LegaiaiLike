@@ -2,7 +2,7 @@ class_name PlayerTurnState
 extends State
 
 var player_state_machine: StateMachine
-var entity : Entity
+var entity_controller : EntityController
 
 func _ready() -> void:
 	player_state_machine = $StateMachine
@@ -10,15 +10,19 @@ func _ready() -> void:
 func enter(args = {}):
 	super.enter(args)
 	
-	entity = args.entity
+	entity_controller = args.entity
 	
 	#create a new turn for this entity
 	
-	entity.CreateNewTurn()
+	#ok so now we're getting somewhere
+	#so entities dont fucking make turns
+	#thats silly
+	#controllers do
+	entity_controller.CreateNewTurn()
 	
 	#set the entity for all the child states
 	for state in player_state_machine.get_children():
-		state.SetCurrentEntity(entity)
+		state.SetCurrentEntity(entity_controller)
 	
 	
 	#ok so the player turn actually like we discussed has its own sub phases

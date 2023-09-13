@@ -4,7 +4,7 @@ extends PlayerInputState
 
 var selectionIndex = 0
 
-var targets : Array[Entity]
+var targets : Array[EntityController]
 
 func enter(args = {}):
 	super.enter(args)
@@ -19,6 +19,7 @@ func enter(args = {}):
 func SetupSingleTargetting():
 	#so look at the current entity, find the team they're not on
 	#blackboard ask for an enemy team by an entity
+	
 	targets = BattleBlackboard.Instance.GetEnemyTeamMembersByEntity(current_entity)
 	selectionIndex = 0 
 	$TargettingView.SetTarget(targets[selectionIndex])

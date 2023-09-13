@@ -16,17 +16,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 
 [node name="BillboardEntity" parent="PlayerTeam/Position1" instance=ExtResource("1_lpsfe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.118727, 0)
+do_rotation = false
 
 [node name="Position2" type="Node3D" parent="PlayerTeam"]
 
 [node name="BillboardEntity" parent="PlayerTeam/Position2" instance=ExtResource("1_lpsfe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.118727, 0)
+do_rotation = false
 
 [node name="Position3" type="Node3D" parent="PlayerTeam"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
 [node name="BillboardEntity" parent="PlayerTeam/Position3" instance=ExtResource("1_lpsfe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.118727, 0)
+do_rotation = false
 
 [node name="EnemyTeam" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
@@ -35,15 +38,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 
 [node name="BillboardEntity" parent="EnemyTeam/Position1" instance=ExtResource("1_lpsfe")]
+do_rotation = false
 
 [node name="Position2" type="Node3D" parent="EnemyTeam"]
 
 [node name="BillboardEntity" parent="EnemyTeam/Position2" instance=ExtResource("1_lpsfe")]
+do_rotation = false
 
 [node name="Position3" type="Node3D" parent="EnemyTeam"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
 [node name="BillboardEntity" parent="EnemyTeam/Position3" instance=ExtResource("1_lpsfe")]
+do_rotation = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.939693, -0.0399296, 0.339681, 0, 0.993162, 0.116746, -0.34202, -0.109706, 0.933267, 1.81419, 2.4291, 4.33649)
+transform = Transform3D(0.952396, -0.127414, 0.276962, 0, 0.908476, 0.417937, -0.304864, -0.398041, 0.865229, 2.14573, 2.36944, 5.5864)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.948095, -0.226242, 0.223449, -0.317743, -0.701525, 0.637889, 0.0124381, -0.675779, -0.737, 0, 1.89825, 0)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 0.515
+directional_shadow_max_distance = 24.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CircleDisplay" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.407407
+anchor_right = 0.157979
+anchor_bottom = 0.995185
+offset_right = -0.320004
+offset_bottom = 0.0400009
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
