@@ -29,7 +29,7 @@ extends Node
 #I think stuff that targets multiple people will just use the stack of modifiers multiple times
 @export var vibe_delta : Vector2i
 
-func GenerateModifiers(target: Entity) -> Array[EffectModifier]:
+func GenerateModifiers(target: EntityController) -> Array[EffectModifier]:
 	return []
 
 

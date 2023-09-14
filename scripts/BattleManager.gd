@@ -1,18 +1,8 @@
 class_name BattleManager
 extends Node
 
-#alright lets go for a quick walk and think a bit
-
-
 var playerInputHandler : PlayerInputHandler
 var turn_order_manager : TurnOrderManager
-
-
-#alrighty
-#we need some fucking UI back
-#so lets go with health bars above entities to start
-
-
 
 func _ready() -> void:
 	playerInputHandler = $PlayerInputHandler as PlayerInputHandler
@@ -20,9 +10,14 @@ func _ready() -> void:
 
 	turn_order_manager.ConstructTurnOrder()
 	
+	InitializeEnemyTurns()
+	
 	turn_order_manager.DoNextTurn()
-		
-		
+
+
+func InitializeEnemyTurns():
+	for enemy in BattleBlackboard.Instance.enemy_team.active_entities:
+		enemy.CreateNewTurn()
 
 func _on_turn_order_manager_turn_starting(entity) -> void:
 	
@@ -54,7 +49,7 @@ func _on_turn_order_manager_turn_starting(entity) -> void:
 	if entity is PlayerController:
 		$StateMachine.transition_to("PlayerTurn", {"entity": entity})
 	elif entity is AIController:
-		print("enemy turn time!!!")
+		$StateMachine.transition_to("EnemyTurn", {"entity": entity})
 
 
 func _on_player_input_handler_got_player_input(input) -> void:

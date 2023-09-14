@@ -12,7 +12,10 @@ func _ready() -> void:
 func ConstructTurnOrder():
 	turn_order = BattleBlackboard.Instance.GetAllAliveEntities()
 	turn_order.sort_custom(SortEntitiesBySpeed)
-	
+		
+
+
+
 	
 	
 func SortEntitiesBySpeed(entity1,entity2):

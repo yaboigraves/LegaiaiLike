@@ -9,6 +9,8 @@ func enter(args={}):
 	
 	action_buffer = current_entity.action_buffer
 	
+	
+	
 	for i in range(action_buffer.effect_modifier_queue.size()):
 		var effect_mod : EffectModifier = action_buffer.effect_modifier_queue[i] as EffectModifier
 		

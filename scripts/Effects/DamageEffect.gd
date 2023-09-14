@@ -12,6 +12,6 @@ extends Effect
 
 
 
-func GenerateModifiers(target:Entity):
+func GenerateModifiers(target:EntityController):
 	var modifier = DamageModifier.new(value,damage_type,vibe_delta)
 	return [modifier]

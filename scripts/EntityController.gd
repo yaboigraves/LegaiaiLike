@@ -22,6 +22,7 @@ func _init(entity_data : EntityData):
 #virtual function
 func CreateNewTurn():
 	pass
+	
 
 #refactor this trash to hand off more responsibility to entity
 func ApplyDamageModifier(damage_modifier: DamageModifier):

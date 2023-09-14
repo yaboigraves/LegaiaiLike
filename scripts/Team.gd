@@ -16,7 +16,6 @@ signal EntitiesUpdated
 
 
 
-
 func _ready() -> void:
 
 	InstantiateEntities()
@@ -61,7 +60,7 @@ func GetEntities() -> Array[EntityController]:
 func GetAliveEntities():
 	var alive_entities : Array[Entity]
 	for child in active_entities:
-		if child.isAlive:
+		if child.IsAlive():
 			alive_entities.append(child)
 	return alive_entities
 

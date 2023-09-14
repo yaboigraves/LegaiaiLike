@@ -4,6 +4,6 @@ extends Effect
 @export var multiplier : int = 2
 
 
-func GenerateModifiers(target:Entity) -> Array[EffectModifier]:
+func GenerateModifiers(target:EntityController) -> Array[EffectModifier]:
 	var modifier = MultiplierModifier.new(depth,multiplier,vibe_delta)
 	return [modifier]

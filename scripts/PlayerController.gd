@@ -21,15 +21,19 @@ func _init(entity_data : PlayerControlledEntityData):
 	
 	right_action = entity_data.rightAction.instantiate()
 	add_child(right_action)
+	
 
 func SetTurnTargets(targets:Array[EntityController]):
 	action_buffer.SetTargets(targets)
 
+
 func CreateNewTurn():
 	action_buffer = ActionBuffer.new()
 
+
 func ConfirmPlayerCombo():
 	action_buffer.CompileActions()
+	
 
 func TryAddDirectionToCombo(direction : Symbols.Direction) -> bool:
 	match(direction):
@@ -44,4 +48,3 @@ func TryAddDirectionToCombo(direction : Symbols.Direction) -> bool:
 		
 	return false
 
-	

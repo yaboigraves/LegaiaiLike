@@ -57,3 +57,6 @@ func RegisterEntityController(entity_controller: EntityController):
 func ModifyVibe(vibe_delta):
 	vibe_position += vibe_delta
 	
+func GetRandomOtherTeam(caster: EntityController):
+	var options = GetEnemyTeamMembersByEntity(caster)
+	return options.pick_random()

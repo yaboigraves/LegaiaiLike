@@ -4,7 +4,7 @@ extends RefCounted
 var maxActionSize : int = 4
 var actionSize : int = 0
 var actions : Array[Action]
-var target : Entity
+
 var targets: Array[EntityController]
 
 var effect_modifier_queue : Array[EffectModifier]
@@ -22,7 +22,7 @@ func CompileActions():
 	effect_modifier_queue.clear()
 	
 	for action in actions:
-		var action_modifiers = action.CompileEffects(target)
+		var action_modifiers = action.CompileEffects(targets[0])
 		effect_modifier_queue.append_array(action_modifiers)
 	
 
