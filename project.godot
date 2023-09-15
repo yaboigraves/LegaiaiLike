@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LegaiaLike"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/not_a_card_game/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://textures/icon.svg"
 
